@@ -15,6 +15,27 @@ The Milestone 3 project assignment is to  build a full-stack site that allows yo
 . Build a book review and recommendation site. 
    
 I have decided to create a website for 
+
+# Project Requirements
+
+## Main Technologies
+. HTML, CSS, JavaScript, Python+Flask, MongoDB
+
+. Additional libraries and external APIs
+
+## Mandatory Requirements
+  
+1. Data handling: Build a MongoDB-backed Flask project for a web application that allows users to store and manipulate data records about a particular domain. If you are considering using a different database, please discuss that with your mentor first and inform Student Care.
+2. Database structure: Put some effort into designing a database structure well-suited for your domain. Make sure to put some thought into the nesting relationships between records of different entities.
+3. User functionality: Create functionality for users to create, locate, display, edit and delete records (CRUD functionality).
+4. Use of technologies: Use HTML and custom CSS for the website's front-end.
+5. Structure: Incorporate a main navigation menu and structured layout (you might want to use Materialize or Bootstrap to accomplish this).
+6. Documentation: Write a README.md file for your project that explains what the project does and the value that it provides to its users.
+7. Version control: Use Git & GitHub for version control.
+8. Attribution: Maintain clear separation between code written by you and code from external sources (e.g. libraries or tutorials). Attribute any code from external sources to its source via 9.comments above the code and (for larger dependencies) in the README.
+9. Deployment: Deploy the final version of your code to a hosting platform such as Heroku.
+10. Make sure to not include any passwords or secret keys in the project repository.  
+
   
 ---    
       
@@ -116,3 +137,132 @@ The user is looking
 ---      
        
 # Structure  
+  
+    
+![Information Architecture](./assets/images/ia.png)
+      
+  
+## wireframes
+[Mobile](./static/images/readme/rm-wireframe-mobile.png)  
+![Mobile](./static/images/readme/rm-wireframe-mobile-thumbnail.png)  
+[Desktop](./static/images/readme/rm-wireframe-desktop.png)  
+![Desktop](./static/images/readme/rm-wireframe-desktop-thumbnail.png)        
+
+
+         
+## Visual Design   
+My colour palette was heavily by the codepen template that I have adapted as the base for my [site layout](https://codepen.io/rinaw/pen/pGxorQ).   
+I inputted the colours into the [coolors.co](https://coolors.co/384364-ffd2b0-f6f7eb-cccccc-333333) colour palette generate to check that I was happy with them and I used Google Dev Tools to check the colour contrast worked with white and black text.  
+![Colour palette](./static/images/readme/rm-colour-palette3.png)  
+
+  
+The final colour palette that I decided upon is:  
+ 
+
+In order to test my colour palette prior to starting to code I've created a partial mock-up of my wireframe for the  
+the desktop view and I'm satisfied it works.  
+![Wireframe Mockup]()  
+  
+
+
+[Back to Content](#content)  
+
+  --- 
+    
+# Technologies Used  
+
+## Languages Used
+
+-  [HTML5](https://en.wikipedia.org/wiki/HTML5)
+
+-  [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+
+  
+### Frameworks, Libraries & Programs Used
+
+* [__Bootstrap 4.1.3__](https://getbootstrap.com/docs/4.1/getting-started/introduction/) Bootstrap Grid was used for responsiveness as well as features such as Collapse, Carousel & Forms..
+* [__Balsamiq__](https://balsamiq.com) Balsamiq was used to create wireframes during the design process.
+* [__Google Fonts__](https://fonts.google.com) used for project fonts.
+* [__Gitpod__](https://gitpod.io) Gitpod was the IDE used to create the site and for version control.
+* [__Github__](https://github.com/) GitHub is used to store the projects code after being pushed from Gitpod.
+* [__FreeLogoDesign__](https://editor.freelogodesign.org/en/logo/edit/4fbd3a25-d057-49d5-a552-98cb7b40d545) used for logo creation.
+* [__Fontawesome__](https://fontawesome.com) Font Awesome was used for the Icons throughout the site.
+* [__99designs__](https://99designs.ie/blog/creative-inspiration/color-combinations/) used for colour palette selection.
+* [__TinyPNG__](https://tinypng.com/) used to compress image sizes.
+* [__CompressPNG__](https://compresspng.com/) used to compress image sizes.
+* Mozilla DevTools used for debugging and testing.
+* Google DevTools used for debugging and testing.
+* [__W3Scool__](https://www.w3schools.com/) used as a general source of information.
+* [__Unsplash__](https://unsplash.com/) used to download images for the website.
+* [__Rawpixel__](https://www.rawpixel.com/free-images?sort=shuffle&premium=free&page=1) used to download images for the website.
+* [__Stackoverflow__](https://stackoverflow.com/) used as one of my main sources of information.
+* [__W3C Markup Validator__](https://validator.w3.org/) Used to test HTML code validation.
+* [__W3C CSS Validatior - Jigsaw__](https://jigsaw.w3.org/css-validator/) Used to test CSS code validation.
+* [__Mobile-Friendly Test__](https://search.google.com/test/mobile-friendly?id=ZteYI-6sVDRnrLMf_Chjmw) used to check if code is Mobile Friendly.
+* [__Am I Responsive__](http://ami.responsivedesign.is/) used to create Mock-up images to represent the site's responsiveness.
+* [__GitHub Wiki TOC generator__](https://ecotrust-canada.github.io/markdown-toc/) Markdown Table of Content Generator.
+  
+[Back to Content](#content)  
+
+--- 
+   
+# TESTING  
+
+The entire testing process, issues and bugs found during development, solutions, and final results can be found [here]().
+
+- Development Notes  
+- Bugs
+- HTML Validation Testing
+- CSS Validation Testing
+- Accessibility Testing
+- Responsive Testing
+- Manual Testing  
+- User Stories
+
+[Back to Content](#content)  
+    
+---  
+  
+# Deployment
+
+## GitHub Pages
+## Heroku
+## MongoDB
+
+ 
+
+## Forking the GitHub Repository
+
+
+  
+## Making a Local Clone
+
+
+```  
+  [Back to Content](#content)  
+
+  ---
+
+# Credits
+  
+## Media   
+  
+Images used on index.html:  
+-   
+-   
+-  
+
+  
+[Back to Content](#content)  
+
+---  
+   
+# Acknowledgements     
+
+I would like to thank the following people for their support and guidance during this project:    
+- My Mentor Chris Quinn.  
+- Code Institute Tutor Support.  
+- The Code Institute Slack Community.  
+-  
+
+[Back to Content](#content)       
