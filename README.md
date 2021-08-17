@@ -194,6 +194,7 @@ the desktop view and I'm satisfied it works.
 * [__Google Fonts__](https://fonts.google.com) used for project fonts.
 * [__Gitpod__](https://gitpod.io) Gitpod was the IDE used to create the site and for version control.
 * [__Github__](https://github.com/) GitHub is used to store the projects code after being pushed from Gitpod.
+* [__RandomKeygen__](https://randomkeygen.com/) The Secure Password & Keygen Generator.
 * [__FreeLogoDesign__](https://editor.freelogodesign.org/en/logo/edit/4fbd3a25-d057-49d5-a552-98cb7b40d545) used for logo creation.
 * [__Fontawesome__](https://fontawesome.com) Font Awesome was used for the Icons throughout the site.
 * [__99designs__](https://99designs.ie/blog/creative-inspiration/color-combinations/) used for colour palette selection.
