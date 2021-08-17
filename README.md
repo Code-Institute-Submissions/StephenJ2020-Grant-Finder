@@ -87,18 +87,30 @@ The user is looking
  
   - #### First Time Visitor Goals
  
-   1. As a First Time Visitor, I want to 
-   2. As a First Time Visitor, I want to 
-   3. As a First Time Visitor, I want to 
-   4. As a First Time Visitor, I want to 
-   5. As a First Time Visitor, I want to 
-   6. As a First Time Visitor, I want a site that 
+   1. As a First Time Visitor, I want to understand the purpose of the site before I register.  
+   2. As a First Time Visitor, I want to see a summary of the most recent content without having to register.  
+   3. As a First Time Visitor, I want to register without having to give too much personal information.  
+   4. As a First Time Visitor, I want to be able to filter Categories of Grants.  
+   5. As a First Time Visitor, I want to be able to search for a grant by keywords.  
+   6. As a First Time Visitor, I want to know the Issuing body of the grant.  
+   7. As a First Time Visitor, I want information about the application process.  
+   8. As a First Time Visitor, I want to know the application opening and closing dates.  
+   9. As a First Time Visitor, I want a link to the application form/portal.   
+   10. As a First Time Visitor, I want a link to any supporting documentation / guidelines provided by the issuing body.  
+   11. As a First Time Visitor, I want to be able to upload details of a grant for other user to apply for.  
+   12. As a First Time Visitor, I want to be able to contact the site owner for basic support if I have any queries about the site.   
  
    - #### Returning & Frequent Visitor Goals
  
-   1. As a Returning Visitor, I want to be able to 
-   2. As a Returning Visitor, I want to be able to 
-   3. As a Frequent User, I want to be able to   
+   1. As a Returning Visitor, I want to be able to log in easily.  
+   2. As a Returning Visitor, I want to be able to see a list of all the grants that I have uploaded in my User Profile when I log-in. 
+   3. As a Frequent User, I want to be able to update / amend details of grants that I have uploaded.   
+   4. As a Frequent User, I want to be able to delete grants that I have uploaded.  
+
+   - #### Site Owner Goals   
+   1. As the site owner, I want to promote a collaborative environment for the sharing of information regarding Grant opportunities for local community groups, clubs & projects.  
+   2. As the site owner, I want to be able to edit or remove content uploaded by other users.  
+   3. As the site owner, I want to be able to add, edit or delete categories of Grants.  
   
   
 [Back to Content](#content)  
