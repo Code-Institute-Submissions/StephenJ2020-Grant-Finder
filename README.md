@@ -14,7 +14,7 @@ The Milestone 3 project assignment is to  build a full-stack site that allows yo
 . Create a jargon glossary/dictionary for a particular domain   
 . Build a book review and recommendation site. 
    
-I have decided to create a website for 
+I have decided to create a website called Grant Finder which will act as a portal for users to upload details of Grant opportunities that are available.  The user will have to register in order to be able to upload a Grant and they will need to specify if they are registering as an individual, on behalf of a voluntary/community group or as a representive of the awarding grants body.  The site will contain several categories of grants such as Community Development, Community Events, Festival Grants, Sports etc.  For the scope of the project the site will focus on North Kildare, however I have chosen to keep the site name quite general as this leaves room to scale the site at a future date.  For example the site could be sacled to National coverage with an additional layout of categories to allow filtering by county.
 
 # Project Requirements
 
@@ -166,14 +166,11 @@ The user is looking
 My colour palette was heavily by the codepen template that I have adapted as the base for my [site layout](https://codepen.io/rinaw/pen/pGxorQ).   
 I inputted the colours into the [coolors.co](https://coolors.co/384364-ffd2b0-f6f7eb-cccccc-333333) colour palette generate to check that I was happy with them and I used Google Dev Tools to check the colour contrast worked with white and black text.  
 ![Colour palette](./static/images/readme/rm-colour-palette3.png)  
-
-  
-The final colour palette that I decided upon is:  
- 
+   
 
 In order to test my colour palette prior to starting to code I've created a partial mock-up of my wireframe for the  
 the desktop view and I'm satisfied it works.  
-![Wireframe Mockup]()  
+![Wireframe Mockup](./static/images/readme/rm-wireframe-mockup.png)  
   
 
 
