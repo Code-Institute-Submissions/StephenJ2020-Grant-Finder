@@ -23,7 +23,8 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_grants")
 def get_grants():
-    return "Hello World!"
+    grants = mongo.db.grants.find()
+    return render_template("grants.html", grants=grants)
 
 
 if __name__ == "__main__":
