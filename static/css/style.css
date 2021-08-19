@@ -38,6 +38,12 @@ svg {
 }
 /* End of codepen code */
 
+/* General css for use in multiple sections */
+
+.navy{
+  color: #384364;
+}
+
 /* Navbar*/
 
 .nav-bg{
