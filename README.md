@@ -260,7 +260,7 @@ The entire testing process, issues and bugs found during development, solutions,
 Images used on index.html:  
 -   
 -   
--  
+-  https://codepen.io/tayfunerbilen/pen/dyPeKxR SVG separator for base.html
 
   
 [Back to Content](#content)  
