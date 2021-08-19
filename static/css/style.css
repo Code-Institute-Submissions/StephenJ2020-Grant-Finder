@@ -1,0 +1,26 @@
+/* Code adapted from: https://codepen.io/tayfunerbilen/pen/dyPeKxR */
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  line-height: 1;
+}
+.wave-container {
+  position: relative;
+  background: #384364;
+  color: #FFF;
+  text-align: center;
+  overflow: hidden;
+	height: auto;
+}
+h1 {
+  font-size: 5rem;
+  margin: 13rem 1.25rem 2.5rem 1.25rem;
+}
+p {
+  font-size: 1.5rem;
+  margin: 0 1.25rem 5rem 1.25rem;
+}
+svg {
+	margin-bottom: -3px;
+}
+/* End of codepen code */

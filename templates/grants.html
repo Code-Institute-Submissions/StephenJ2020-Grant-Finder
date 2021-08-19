@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grant Finder</title>
-</head>
-<body>
-    {% for grant in grants %}
+{% extends "base.html" %}
+{% block content %}
+
+    <h2>I'm extending the base template >>>>> </h2>
+{% for grant in grants %}
+    
         {{ grant.grant_title }}<br>
         {{ grant.category_name }}<br>
         {{ grant.issuing_body }}<br>
@@ -19,6 +15,4 @@
         {{ grant.website }}<br>
         {{ grant.is_recurring }}<br>
     {% endfor %}
-    
-</body>
-</html>
+{% endblock %}
