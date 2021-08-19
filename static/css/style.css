@@ -1,8 +1,10 @@
+
 /* Code adapted from: https://codepen.io/tayfunerbilen/pen/dyPeKxR */
 body {
   margin: 0;
   font-family: system-ui, sans-serif;
   line-height: 1;
+  background-color: #FFD2B0;
 }
 .wave-container {
   position: relative;
@@ -24,3 +26,13 @@ svg {
 	margin-bottom: -3px;
 }
 /* End of codepen code */
+
+/* Navbar*/
+
+.nav-bg{
+  background-color: #384364;
+}
+
+header .col{
+  padding: 0 !important; 
+}

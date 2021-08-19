@@ -13,12 +13,50 @@
     <title>Grant Finder</title>
 </head>
 <body>
-    <!-- Code adapted from: https://codepen.io/tayfunerbilen/pen/dyPeKxR -->
-    <div class="wave-container">
-        <h1>Grant Finder</h1>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200"><path fill="#fff" fill-opacity="1" d="M0,96L60,117.3C120,139,240,181,360,181.3C480,181,600,139,720,133.3C840,128,960,160,1080,149.3C1200,139,1320,85,1380,58.7L1440,32L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
-      </div>
-
+    <header>
+        <div class="wave-container">
+            <div class="row">
+                <div class="col s12">
+                    <!-- materialize main navbar -->
+                    <nav class="nav-extended nav-bg">
+                        <div class="nav-wrapper">
+                            <a href="#!" class="brand-logo">Logo</a>
+                            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i
+                                    class="material-icons">menu</i></a>
+                            <ul class="right hide-on-med-and-down">
+                                <li><a href="sass.html">Sass</a></li>
+                                <li><a href="badges.html">Components</a></li>
+                                <li><a href="collapsible.html">Javascript</a></li>
+                                <li><a href="mobile.html">Mobile</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <!-- materialize mobile side navbar -->
+                    <ul class="sidenav" id="mobile-demo">
+                        <li><a href="sass.html">Sass</a></li>
+                        <li><a href="badges.html">Components</a></li>
+                        <li><a href="collapsible.html">Javascript</a></li>
+                        <li><a href="mobile.html">Mobile</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Logo navbar image for link to homepage -->
+                <div class="col s6">
+                    <img src="{{ url_for('static', filename='images/logo-searching-clear-background.png') }}" alt="">
+                </div>
+                <div class="col s6">
+                    <!-- Site Name and main H1 header -->
+                    <h1>Grant Finder</h1>
+                </div>
+            </div>
+            <!-- SVG wave image - Code adapted from: https://codepen.io/tayfunerbilen/pen/dyPeKxR -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200"><path fill="#FFD2B0" fill-opacity="1" d="M0,96L60,117.3C120,139,240,181,360,181.3C480,181,
+                600,139,720,133.3C840,128,960,160,1080,149.3C1200,139,1320,85,1380,58.7L1440,32L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,
+                320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+            </svg>
+        </div>
+    </header>
     
 
 
