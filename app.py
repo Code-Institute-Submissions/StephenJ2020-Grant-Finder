@@ -53,9 +53,14 @@ def register():
         session["user"] = request.form.get("username").lower()
         flash("You have been successfully registered as a new user!")
         flash("You may now view the full list of Grants within our Database,")
-        flash("or you maybe add details of a new grant that you wish to share with other users.")
+        flash("or you may add details of a new grant that you wish to share with other users.")
         
     return render_template("register.html")
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    return render_template("login.html")
 
 
 if __name__ == "__main__":
