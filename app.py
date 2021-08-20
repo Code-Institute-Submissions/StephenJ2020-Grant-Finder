@@ -30,6 +30,31 @@ def get_grants():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    if request.method == "POST":
+        # Check if the Username already exists in the DB
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            flash("Username already exists")
+            return redirect(url_for("register"))
+
+        register = {
+            "firstName": request.form.get("firstName").lower(),
+            "lastName": request.form.get("lastName").lower(),
+            "email": request.form.get("email").lower(),
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(request.form.get("password")),
+            "organisation": request.form.get("organisation").lower(),
+            "website": request.form.get("website").lower()
+        }
+        mongo.db.users.insert_one(register)
+
+        session["user"] = request.form.get("username").lower()
+        flash("You have been successfully registered as a new user!")
+        flash("You may now view the full list of Grants within our Database,")
+        flash("or you maybe add details of a new grant that you wish to share with other users.")
+        
     return render_template("register.html")
 
 
