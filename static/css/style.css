@@ -44,6 +44,10 @@ svg {
   color: #384364;
 }
 
+.flashes h4{
+  line-height: 1.5;
+}
+
 /* Navbar*/
 
 .nav-bg{
