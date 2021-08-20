@@ -221,7 +221,19 @@ the desktop view and I'm satisfied it works.
 The entire testing process, issues and bugs found during development, solutions, and final results can be found [here]().
 
 - Development Notes  
+  
+  Materalize Select / dropdown - unsure if took name attribute  
+  --> https://stackoverflow.com/questions/39130659/materialize-css-select-does-not-have-name-nor-proper-value-in-dom    
+      
+        
 - Bugs
+  
+  
+  
+
+
+
+
 - HTML Validation Testing
 - CSS Validation Testing
 - Accessibility Testing
