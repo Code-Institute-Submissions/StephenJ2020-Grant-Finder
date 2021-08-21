@@ -53,13 +53,37 @@ def register():
         session["user"] = request.form.get("username").lower()
         flash("You have been successfully registered as a new user!")
         flash("You may now view the full list of Grants within our Database,")
-        flash("or you may add details of a new grant that you wish to share with other users.")
-        
+        flash("or add details of a new grant to share with other users.")
+
     return render_template("register.html")
 
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    if request.method == "POST":
+        # Check if Username exists in DB
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            # Check password matches user input
+            if check_password_hash(
+               existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                # session["user"] = request.form.get("firstName")
+                flash("Welcome, {}".format(request.form.get("username")))
+                # flash("Welcome, {}", mongo.db.user.find_one("firstName"))
+                # flash("Welcome, {}".format.mongo.db.user.find_one("firstName"))
+            else:
+                # Invalid Password
+                flash("Incorrect Username and/or Password")
+                return redirect(url_for("login"))
+
+        else:
+            # Username doesn't match
+            flash("Incorrect Username and/or Password")
+            return redirect(url_for("login"))
+
     return render_template("login.html")
 
 
