@@ -24,7 +24,7 @@
                                     class="fas fa-bars"></i></a>
                             <ul class="right hide-on-med-and-down">
                                 <li><a href="{{ url_for('get_grants') }}">Home</a></li>
-                                <li><a href="#">My Account</a></li>
+                                <li><a href="{{ url_for('my_account', username=session['user']) }}">My Account</a></li>
                                 <li><a href="#">New Grant</a></li>
                                 <li><a href="#">Maintenance</a></li>
                                 <li><a href="#">Contact Us</a></li>
@@ -37,7 +37,7 @@
                     <!-- materialize mobile side navbar -->
                     <ul class="sidenav" id="mobile-demo">
                         <li><a href="{{ url_for('get_grants') }}">Home</a></li>
-                        <li><a href="#">My Account</a></li>
+                        <li><a href="{{ url_for('my_account', username=session['user']) }}">My Account</a></li>
                         <li><a href="#">New Grant</a></li>
                         <li><a href="#">Maintenance</a></li>
                         <li><a href="#">Contact Us</a></li>

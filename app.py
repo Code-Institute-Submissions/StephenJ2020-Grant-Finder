@@ -54,6 +54,7 @@ def register():
         flash("You have been successfully registered as a new user!")
         flash("You may now view the full list of Grants within our Database,")
         flash("or add details of a new grant to share with other users.")
+        return redirect(url_for("my_account", username=session["user"]))
 
     return render_template("register.html")
 
@@ -71,7 +72,10 @@ def login():
                existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 # session["user"] = request.form.get("firstName")
-                flash("Welcome, {}".format(request.form.get("username")))
+                flash("Welcome, {}".format(
+                    request.form.get("username")))
+                return redirect(url_for(
+                    "my_account", username=session["user"]))
                 # flash("Welcome, {}", mongo.db.user.find_one("firstName"))
                 # flash("Welcome, {}".format.mongo.db.user.find_one("firstName"))
             else:
@@ -85,6 +89,14 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html")
+
+
+@app.route("/my_account/<username>", methods=["GET", "POST"])
+def my_account(username):
+    # Get session user's username from the DB
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    return render_template("my_account.html", username=username)
 
 
 if __name__ == "__main__":
