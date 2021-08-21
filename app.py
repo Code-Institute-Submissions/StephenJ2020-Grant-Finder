@@ -77,7 +77,8 @@ def login():
                 return redirect(url_for(
                     "my_account", username=session["user"]))
                 # flash("Welcome, {}", mongo.db.user.find_one("firstName"))
-                # flash("Welcome, {}".format.mongo.db.user.find_one("firstName"))
+                # flash("Welcome, {}".format.mongo.db.user.find_one(
+                # "firstName"))
             else:
                 # Invalid Password
                 flash("Incorrect Username and/or Password")
@@ -95,8 +96,20 @@ def login():
 def my_account(username):
     # Get session user's username from the DB
     username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    return render_template("my_account.html", username=username)
+        {"username": session["user"]})["first_name"]
+
+    if session["user"]:
+        return render_template("my_account.html", username=username)
+
+    return redirect(url_for("login"))
+
+
+@app.route("/logout")
+def logout():
+    # remove user from session cookies and logout
+    flash("You have been logged out!")
+    session.pop("user")
+    return redirect(url_for("login"))
 
 
 if __name__ == "__main__":
