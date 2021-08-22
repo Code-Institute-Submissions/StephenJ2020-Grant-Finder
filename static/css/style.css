@@ -54,6 +54,10 @@ svg {
   background-color: #384364;
 }
 
+.bg-gray{
+  background-color: #cccccc;
+}
+
 header .col{
   padding: 0 !important; 
 }

@@ -24,7 +24,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_grants")
 def get_grants():
-    grants = mongo.db.grants.find()
+    grants = list(mongo.db.grants.find())
     return render_template("grants.html", grants=grants)
 
 

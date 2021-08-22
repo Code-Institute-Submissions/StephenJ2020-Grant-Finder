@@ -16,192 +16,119 @@
         {{ grant.is_recurring }}<br>
     {% endfor %}
 
-    <!-- <div class="col s12 m7">
-        <h2 class="header">Horizontal Card</h2>
-        <div class="card horizontal">
-            <div class="card-image">
-                <img src="https://lorempixel.com/300/290/nature/6">
-            </div>
+    
+    {% for grant in grants %}
+        <div class="col s12 m10 offset-m2 l8 bg-gray">
+            
             <div class="card-stacked">
                 <div class="card-content">
-                    
-                    <div class="row">
-                        <div class="col s12">
-                            <ul class="tabs">
-                                <li class="tab col s3"><a href="#test1">Test 1</a></li>
-                                <li class="tab col s3"><a class="active" href="#test2">Test 2</a></li>
-                                <li class="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li>
-                                <li class="tab col s3"><a href="#test4">Test 4</a></li>
-                            </ul>
-                        </div>
-                        <div id="test1" class="col s12">
-                            I am a very simple card. I am good at containing small bits of information.
-                        </div>
-                        <div id="test2" class="col s12">I am a very simple card. I am good at containing small bits of
-                            information.
-                            <P>I am a very simple card. I am good at containing small bits of information.</P>
-                        </div>
-                        <div id="test3" class="col s12">I am a very simple card. I am good at containing small bits of
-                            <information class="p">I am a very simple card. I am good at containing small bits of
-                                information.</information>
-                        </div>
-                        <div id="test4" class="col s12">I am a very simple card. I am good at containing small bits of
-                            information.
-                            <information class="p">I am a very simple card. I am good at containing small bits of
-                                information.</information>
-                        </div>
-                    </div>
+                    {% if loop.index % 2 != 0 %}
 
-                </div>
-                <div class="card-action">
-                    <a href="#">This is a link</a>
-                </div>
-            </div>
-        </div>
-    </div>
+                        <!-- Start of card one -->
+                        <div class="col s12 m7">
+                            <div class="card horizontal">
+                                <!-- Image on left handside -->
+                                <div class="card-image">
+                                    <img src="https://lorempixel.com/300/290/nature/6">
+                                </div>
+                                <div class="card-stacked">
+                                    <div class="card-content">
 
-    <div class="col s12 m7">
-        <div class="card horizontal">
-            <div class="card-stacked">
-                <div class="card-content">
-                    <div class="row">
-                        <div class="col s12">
-                            <ul class="tabs">
-                                <li class="tab col s3"><a href="#test5">Test 1</a></li>
-                                <li class="tab col s3"><a class="active" href="#test6">Test 2</a></li>
-                                <li class="tab col s3 disabled"><a href="#test7">Disabled Tab</a></li>
-                                <li class="tab col s3"><a href="#test8">Test 4</a></li>
-                            </ul>
-                        </div>
-                        <div id="test5" class="col s12">
-                            I am a very simple card. I am good at containing small bits of information.
-                        </div>
-                        <div id="test6" class="col s12">I am a very simple card. I am good at containing small bits of
-                            information.
-                            <P>I am a very simple card. I am good at containing small bits of information.</P>
-                        </div>
-                        <div id="test7" class="col s12">I am a very simple card. I am good at containing small bits of
-                            <information class="p">I am a very simple card. I am good at containing small bits of
-                                information.</information>
-                        </div>
-                        <div id="test8" class="col s12">I am a very simple card. I am good at containing small bits of
-                            information.
-                            <information class="p">I am a very simple card. I am good at containing small bits of
-                                information.</information>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="card-action">
-                    <a href="#">This is a link</a>
-                </div>
-            </div>
-            <div class="card-image">
-                <img src="https://lorempixel.com/300/290/nature/6">
-            </div> 
-        </div>
-    </div> -->
-
-
-
-
-
-
-    <div class="col s12 m10 offset-m2 l8" style="background-color: #cccccc;">
-            <div class="card-stacked">
-                <div class="card-content">
-
-                    
-                    <div class="col s12 m7">
-                        <div class="card horizontal">
-                            <div class="card-image">
-                                <img src="https://lorempixel.com/300/290/nature/6">
-                            </div>
-                            <div class="card-stacked">
-                                <div class="card-content">
-                                    
-                                    <div class="row">
-                                        <div class="col s12">
-                                            <ul class="tabs">
-                                                <li class="tab col s3"><a href="#test1">Test 1</a></li>
-                                                <li class="tab col s3"><a class="active" href="#test2">Test 2</a></li>
-                                                <li class="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li>
-                                                <li class="tab col s3"><a href="#test4">Test 4</a></li>
-                                            </ul>
-                                        </div>
-                                        <div id="test1" class="col s12">
-                                            I am a very simple card. I am good at containing small bits of information.
-                                        </div>
-                                        <div id="test2" class="col s12">I am a very simple card. I am good at containing small bits of
-                                            information.
-                                            <P>I am a very simple card. I am good at containing small bits of information.</P>
-                                        </div>
-                                        <div id="test3" class="col s12">I am a very simple card. I am good at containing small bits of
-                                            <information class="p">I am a very simple card. I am good at containing small bits of
-                                                information.</information>
-                                        </div>
-                                        <div id="test4" class="col s12">I am a very simple card. I am good at containing small bits of
-                                            information.
-                                            <information class="p">I am a very simple card. I am good at containing small bits of
-                                                information.</information>
+                                        <div class="row">
+                                            <div class="col s12">
+                                                <ul class="tabs">
+                                                    <li class="tab col s3"><a href="#test1">{{ grant.grant_title }}</a></li>
+                                                    <li class="tab col s3"><a class="active" href="#test2">Test 2</a></li>
+                                                    <li class="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li>
+                                                    <li class="tab col s3"><a href="#test4">Test 4</a></li>
+                                                </ul>
+                                            </div>
+                                            <div id="test1" class="col s12">
+                                                I am a very simple card. I am good at containing small bits of information.
+                                            </div>
+                                            <div id="test2" class="col s12">I am a very simple card. I am good at containing
+                                                small bits of
+                                                information.
+                                                <P>I am a very simple card. I am good at containing small bits of
+                                                    information.</P>
+                                            </div>
+                                            <div id="test3" class="col s12">I am a very simple card. I am good at containing
+                                                small bits of
+                                                <information class="p">I am a very simple card. I am good at containing
+                                                    small bits of
+                                                    information.</information>
+                                            </div>
+                                            <div id="test4" class="col s12">I am a very simple card. I am good at containing
+                                                small bits of
+                                                information.
+                                                <information class="p">I am a very simple card. I am good at containing
+                                                    small bits of
+                                                    information.</information>
+                                            </div>
                                         </div>
                                     </div>
-                
-                                </div>
-                                <div class="card-action">
-                                    <a href="#">This is a link</a>
+                                    <div class="card-action">
+                                        <a href="#">This is a link</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                
-                    <div class="col s12 m7">
-                        <div class="card horizontal">
-                            <div class="card-stacked">
-                                <div class="card-content">
-                                    <div class="row">
-                                        <div class="col s12">
-                                            <ul class="tabs">
-                                                <li class="tab col s3"><a href="#test5">Test 1</a></li>
-                                                <li class="tab col s3"><a class="active" href="#test6">Test 2</a></li>
-                                                <li class="tab col s3 disabled"><a href="#test7">Disabled Tab</a></li>
-                                                <li class="tab col s3"><a href="#test8">Test 4</a></li>
-                                            </ul>
-                                        </div>
-                                        <div id="test5" class="col s12">
-                                            I am a very simple card. I am good at containing small bits of information.
-                                        </div>
-                                        <div id="test6" class="col s12">I am a very simple card. I am good at containing small bits of
-                                            information.
-                                            <P>I am a very simple card. I am good at containing small bits of information.</P>
-                                        </div>
-                                        <div id="test7" class="col s12">I am a very simple card. I am good at containing small bits of
-                                            <information class="p">I am a very simple card. I am good at containing small bits of
-                                                information.</information>
-                                        </div>
-                                        <div id="test8" class="col s12">I am a very simple card. I am good at containing small bits of
-                                            information.
-                                            <information class="p">I am a very simple card. I am good at containing small bits of
-                                                information.</information>
+                        <!-- End of card one -->
+                    {% else %}
+                        <!-- Start of card two -->
+                        <div class="col s12 m7">
+                            <div class="card horizontal">
+                                <div class="card-stacked">
+                                    <div class="card-content">
+                                        <div class="row">
+                                            <div class="col s12">
+                                                <ul class="tabs">
+                                                    <li class="tab col s3"><a href="#test5">{{ grant.grant_title }}</a></li>
+                                                    <li class="tab col s3"><a class="active" href="#test6">Test 2</a></li>
+                                                    <li class="tab col s3 disabled"><a href="#test7">Disabled Tab</a></li>
+                                                    <li class="tab col s3"><a href="#test8">Test 4</a></li>
+                                                </ul>
+                                            </div>
+                                            <div id="test5" class="col s12">
+                                                I am a very simple card. I am good at containing small bits of information.
+                                            </div>
+                                            <div id="test6" class="col s12">I am a very simple card. I am good at containing
+                                                small bits of
+                                                information.
+                                                <P>I am a very simple card. I am good at containing small bits of
+                                                    information.</P>
+                                            </div>
+                                            <div id="test7" class="col s12">I am a very simple card. I am good at containing
+                                                small bits of
+                                                <information class="p">I am a very simple card. I am good at containing
+                                                    small bits of
+                                                    information.</information>
+                                            </div>
+                                            <div id="test8" class="col s12">I am a very simple card. I am good at containing
+                                                small bits of
+                                                information.
+                                                <information class="p">I am a very simple card. I am good at containing
+                                                    small bits of
+                                                    information.</information>
+                                            </div>
                                         </div>
                                     </div>
-                
+                                    <div class="card-action">
+                                        <a href="#">This is a link</a>
+                                    </div>
                                 </div>
-                                <div class="card-action">
-                                    <a href="#">This is a link</a>
+                                <!-- Image on right handside -->
+                                <div class="card-image">
+                                    <img src="https://lorempixel.com/300/290/nature/6">
                                 </div>
                             </div>
-                            <div class="card-image">
-                                <img src="https://lorempixel.com/300/290/nature/6">
-                            </div> 
                         </div>
-                    </div>
-
-
-                
+                        <!-- End of card two -->
+                    {% endif %}
+                </div>
+            </div>
         </div>
-    </div>
-
+    {% endfor %}
 
 
 {% endblock %}
