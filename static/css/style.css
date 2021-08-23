@@ -66,6 +66,12 @@ header .col{
   float: none;
 }
 
+/* Grants.html */
+
+.card-content p{
+  padding: 5px;
+}
+
 /* Media Queries */
 
 @media only screen and (min-width: 601px){

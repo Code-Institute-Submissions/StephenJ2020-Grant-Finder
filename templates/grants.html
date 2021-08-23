@@ -1,20 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h2>I'm extending the base template >>>>> </h2>
 {% for grant in grants %}
     
-        {{ grant.grant_title }}<br>
-        {{ grant.category_name }}<br>
-        {{ grant.issuing_body }}<br>
-        {{ grant.grant_description }}<br>
-        {{ grant.opening_date }}<br>
-        {{ grant.closing_date }}<br>
-        {{ grant.application_link }}<br>
-        {{ grant.support_docs }}<br>
-        {{ grant.website }}<br>
-        {{ grant.is_recurring }}<br>
-    {% endfor %}
+{{ grant.grant_title }}<br>
+{{ grant.category_name }}<br>
+{{ grant.issuing_body }}<br>
+{{ grant.grant_description }}<br>
+{{ grant.opening_date }}<br>
+{{ grant.closing_date }}<br>
+{{ grant.application_link }}<br>
+{{ grant.support_docs }}<br>
+{{ grant.website }}<br>
+{{ grant.is_recurring }}<br>
+{% endfor %}
+
+
 
     
     {% for grant in grants %}
@@ -34,39 +35,10 @@
                                 <div class="card-stacked">
                                     <div class="card-content">
 
-                                        <div class="row">
-                                            <div class="col s12">
-                                                <ul class="tabs">
-                                                    <li class="tab col s3"><a href="#test1">{{ grant.grant_title }}</a></li>
-                                                    <li class="tab col s3"><a class="active" href="#test2">Test 2</a></li>
-                                                    <li class="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li>
-                                                    <li class="tab col s3"><a href="#test4">Test 4</a></li>
-                                                </ul>
-                                            </div>
-                                            <div id="test1" class="col s12">
-                                                I am a very simple card. I am good at containing small bits of information.
-                                            </div>
-                                            <div id="test2" class="col s12">I am a very simple card. I am good at containing
-                                                small bits of
-                                                information.
-                                                <P>I am a very simple card. I am good at containing small bits of
-                                                    information.</P>
-                                            </div>
-                                            <div id="test3" class="col s12">I am a very simple card. I am good at containing
-                                                small bits of
-                                                <information class="p">I am a very simple card. I am good at containing
-                                                    small bits of
-                                                    information.</information>
-                                            </div>
-                                            <div id="test4" class="col s12">I am a very simple card. I am good at containing
-                                                small bits of
-                                                information.
-                                                <information class="p">I am a very simple card. I am good at containing
-                                                    small bits of
-                                                    information.</information>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        
+
+                                        
+                                        
                                     <div class="card-action">
                                         <a href="#">This is a link</a>
                                     </div>
