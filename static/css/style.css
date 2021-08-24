@@ -43,6 +43,9 @@ svg {
 .navy{
   color: #384364;
 }
+.gray-dark{
+  color: #333333;
+}
 
 .flashes h4{
   line-height: 1.5;
@@ -67,6 +70,14 @@ header .col{
 }
 
 /* Grants.html */
+
+.section-container{
+  width: 100vw;
+  height: 80vh;
+  background-color: #f6f7eb;
+  margin-top: 6rem;
+
+}
 
 .card-content p{
   padding: 5px;

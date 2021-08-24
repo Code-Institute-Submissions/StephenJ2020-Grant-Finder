@@ -1,165 +1,54 @@
 {% extends "base.html" %}
 {% block content %}
 
-{% for grant in grants %}
-    
-{{ grant.grant_title }}<br>
-{{ grant.category_name }}<br>
-{{ grant.issuing_body }}<br>
-{{ grant.grant_description }}<br>
-{{ grant.opening_date }}<br>
-{{ grant.closing_date }}<br>
-{{ grant.application_link }}<br>
-{{ grant.support_docs }}<br>
-{{ grant.website }}<br>
-{{ grant.is_recurring }}<br>
-{% endfor %}
-
-
-
-    
-    {% for grant in grants %}
-        <div class="col s12 m10 offset-m2 l8 bg-gray">
-            
-            <div class="card-stacked">
-                <div class="card-content">
+<section class="row">
+    <div class="col s12 m10 offset-m1 l12 z-depth-3 section-container">
+        <div class="row">
+            <div class="col s12 card-content">
+                <h2 class="center-align">Hello</h2>
+                {% for grant in grants %}
                     {% if loop.index % 2 != 0 %}
-
-                        <!-- Start of card one -->
-                        <div class="col s12 m7">
+                        <!-- Card 1 -->
+                        <div class="col s12">
+                            <h2 class="header">Horizontal Card</h2>
                             <div class="card horizontal">
-                                <!-- Image on left handside -->
-                                <div class="card-image hide-on-small-only">
-                                    <img src="https://lorempixel.com/300/290/nature/6">
-                                </div>
-                                <div class="card-stacked">
-                                    <div class="card-content">
-
-                                        <div class="row">
-                                            <div class="col s12">
-                                                <div class="row">
-                                                    <div class="col s12 l4">
-                                                        <p><a href="#tab1" class="active">Category: {{ grant.category_name }}</a></p>
-                                                    </div>
-                                                    <div class="col s12 l4">
-                                                        <p><a href="#tab2">Grant Description</a></p>
-                                                    </div>
-                                                    <div class="col s12 l4">
-                                                        <p><a href="#tab3">Support Doc's</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s12" id="tab1">
-                                                <h5>
-                                                    <strong class="center-align">Grant Title: {{ grant.grant_title }}</strong>
-                                                </h5>
-                                                <p>
-                                                    <strong>Issuing Body: {{ grant.issuing_body }}</strong>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s12" id="tab2">
-                                                <P>
-                                                    {{ grant.grant_description }}
-                                                </P>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s12" id="tab3">
-                                                <p>
-                                                    {{ grant.support_docs }}
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                        
-                                        
-                                    <div class="card-action">
-                                        <a href="#">This is a link</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End of card one -->
-                    {% else %}
-                        <!-- Start of card two -->
-                        <div class="col s12 m7">
-                            <div class="card horizontal">
-                                <div class="card-stacked">
-                                    <div class="card-content">
-                                        <div class="row">
-                                            <div class="col s12">
-                                                <ul class="tabs">
-                                                    <li class="tab col s3"><a href="#test5">{{ grant.grant_title }}</a></li>
-                                                    <li class="tab col s3"><a class="active" href="#test6">Test 2</a></li>
-                                                    <li class="tab col s3 disabled"><a href="#test7">Disabled Tab</a></li>
-                                                    <li class="tab col s3"><a href="#test8">Test 4</a></li>
-                                                </ul>
-                                            </div>
-                                            <div id="test5" class="col s12">
-                                                I am a very simple card. I am good at containing small bits of information.
-                                            </div>
-                                            <div id="test6" class="col s12">I am a very simple card. I am good at containing
-                                                small bits of
-                                                information.
-                                                <P>I am a very simple card. I am good at containing small bits of
-                                                    information.</P>
-                                            </div>
-                                            <div id="test7" class="col s12">I am a very simple card. I am good at containing
-                                                small bits of
-                                                <information class="p">I am a very simple card. I am good at containing
-                                                    small bits of
-                                                    information.</information>
-                                            </div>
-                                            <div id="test8" class="col s12">I am a very simple card. I am good at containing
-                                                small bits of
-                                                information.
-                                                <information class="p">I am a very simple card. I am good at containing
-                                                    small bits of
-                                                    information.</information>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-action">
-                                        <a href="#">This is a link</a>
-                                    </div>
-                                </div>
-                                <!-- Image on right handside -->
                                 <div class="card-image">
-                                    <img src="https://lorempixel.com/300/290/nature/6">
+                                    <img src="https://lorempixel.com/100/190/nature/6">
+                                </div>
+                                <div class="card-stacked">
+                                    <div class="card-content">
+                                        <p>I am a very simple card. I am good at containing small bits of information.</p>
+                                    </div>
+                                    <div class="card-action">
+                                        <a href="#">This is a link</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- End of card two -->
+                    {% else %}
+                        <!-- Card 2 -->
+                        <div class="col s12">
+                            <h2 class="header">Horizontal Card</h2>
+                            <div class="card horizontal">
+                                <div class="card-image">
+                                    <img src="https://lorempixel.com/100/190/nature/6">
+                                </div>
+                                <div class="card-stacked">
+                                    <div class="card-content">
+                                        <p>I am a very simple card. I am good at containing small bits of information.</p>
+                                    </div>
+                                    <div class="card-action">
+                                        <a href="#">This is a link</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     {% endif %}
-                </div>
+                {% endfor %}
             </div>
         </div>
-    {% endfor %}
-
+    </div>
+</section>
 
 {% endblock %}
 
-
-
-<div id="tab1" class="col s12">
-    <h5>
-        <strong class="center-align">Grant Title: {{ grant.grant_title }}</strong>
-    </h5>
-    <p>
-        <strong>Issuing Body: {{ grant.issuing_body }}</strong>
-    </p>
-</div>
-<div id="tab2" class="col s12">
-    <P>
-        {{ grant.grant_description }}
-    </P>
-</div>
-<div id="tab3" class="col s12">
-    <p>
-        {{ grant.support_docs }}
-    </p>
-</div>
