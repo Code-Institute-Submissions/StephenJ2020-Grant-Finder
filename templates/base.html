@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col s12">
                     <!-- materialize main navbar -->
-                    <nav class="nav-extended nav-bg">
+                    <nav class="nav-extended bg-navy">
                         <div class="nav-wrapper">
                             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i
                                     class="fas fa-bars"></i></a>
@@ -26,7 +26,7 @@
                                 <li><a href="{{ url_for('get_grants') }}">Home</a></li>
                                 {% if session.user %}
                                     <li><a href="{{ url_for('my_account', username=session['user']) }}">My Account</a></li>
-                                    <li><a href="#">New Grant</a></li>
+                                    <li><a href="{{ url_for('add_grant') }}">New Grant</a></li>
                                     <li><a href="#">Maintenance</a></li>
                                     <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                                 {% else %}
@@ -42,7 +42,7 @@
                         <li><a href="{{ url_for('get_grants') }}">Home</a></li>
                         {% if session.user %}
                             <li><a href="{{ url_for('my_account', username=session['user']) }}">My Account</a></li>
-                            <li><a href="#">New Grant</a></li>
+                            <li><a href="{{ url_for('add_grant') }}">New Grant</a></li>
                             <li><a href="#">Maintenance</a></li>
                             <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                         {% else %}

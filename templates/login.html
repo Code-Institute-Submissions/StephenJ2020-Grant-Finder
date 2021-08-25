@@ -40,33 +40,3 @@
     </div>
 </div>
 {% endblock %}
-
-
-
-
-
-{% for grant in grants %}
-    
-{{ grant.grant_title }}<br>
-{{ grant.category_name }}<br>
-{{ grant.issuing_body }}<br>
-{{ grant.grant_description }}<br>
-{{ grant.opening_date }}<br>
-{{ grant.closing_date }}<br>
-{{ grant.application_link }}<br>
-{{ grant.support_docs }}<br>
-{{ grant.website }}<br>
-{{ grant.is_recurring }}<br>
-{% endfor %}
-
-
-
-    
-    {% for grant in grants %}
-
-                    {% if loop.index % 2 != 0 %}
-
-                        
-                    {% endif %}
-                
-    {% endfor %}
