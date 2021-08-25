@@ -9,18 +9,80 @@
                 {% for grant in grants %}
                     {% if loop.index % 2 != 0 %}
                         <!-- Card 1 -->
-                        <div class="col s12">
-                            <h2 class="header">Horizontal Card</h2>
+                        <div class=" hoverable">
                             <div class="card horizontal">
-                                <div class="card-image">
-                                    <img src="https://lorempixel.com/100/190/nature/6">
+                                <div class="card-image hide-on-small-only">
+                                    <img class="responsive-img" src="https://lorempixel.com/200/200/nature/6">
                                 </div>
-                                <div class="card-stacked">
+                                <div class="card-stacked tabs-fixed-width">
                                     <div class="card-content">
-                                        <p>I am a very simple card. I am good at containing small bits of information.</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <a href="#">This is a link</a>
+                                        <p class="center-align">{{ grant.grant_title }}</p>
+                                        <div class="card">
+                                            <div class="card-tabs">
+                                                <ul class="tabs">
+                                                    <li class="tab s12 m4 active"><a href="#tab1">General Info</a></li>
+                                                    <li class="tab s12 m4"><a href="#tab2">Grant Description</a></li>
+                                                    <li class="tab s12 m4"><a href="#tab3">Support Documentation</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="card-content grey lighten-4">
+                                                <div id="tab1">
+                                                    <div class="row">
+                                                        <div class="col s12">
+                                                            <div class="col s12 m6 ">
+                                                                <p><strong>Grant Title: </strong>
+                                                                    <span class="navy"><em>
+                                                                            {{ grant.grant_title }} </em></span>
+                                                                </p>
+                                                            </div>
+                                                            <div class="col s12 m6 ">
+                                                                <p><strong>Category: </strong>
+                                                                    <span class="navy"><em>
+                                                                        {{ grant.category_name }} </em></span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col s12">
+                                                            <div class="col s12 m6 ">
+                                                                <p><strong>Issuing Body: </strong>
+                                                                    <span class="navy"><em>
+                                                                        {{ grant.issuing_body }} </em></span>
+                                                                </p>
+                                                            </div>
+                                                            <div class="col s12 m6 ">
+                                                                <p><strong>Recurring: </strong>
+                                                                    <span class="navy"><em>
+                                                                        {{ grant.is_recurring }} </em></span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col s12">
+                                                            <div class="col s12 m6 ">
+                                                                <p><strong>Opening Date: </strong>
+                                                                    <span class="navy"><em>
+                                                                        {{ grant.opening_date }} </em></span>
+                                                                </p>
+                                                            </div>
+                                                            <div class="col s12 m6 ">
+                                                                <p><strong>Closing Date: </strong>
+                                                                    <span class="navy"><em>
+                                                                        {{ grant.closing_date }} </em></span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="tab2">Test 2 I am a very simple card. I am good at containing
+                                                    small bits of information.</div>
+                                                <div id="tab3">Test 3 I am a very simple card. I am good at containing
+                                                    small bits of information.</div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
