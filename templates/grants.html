@@ -5,18 +5,18 @@
     <div class="col s12 m10 offset-m1 l12 z-depth-3 section-container">
         <div class="row">
             <div class="col s12 card-content">
-                <h2 class="center-align">Hello</h2>
+                <h2 class="center-align">Current Grant Opportunities</h2>
                 {% for grant in grants %}
                     {% if loop.index % 2 != 0 %}
                         <!-- Card 1 -->
                         <div class=" hoverable">
                             <div class="card horizontal">
                                 <div class="card-image hide-on-small-only">
-                                    <img class="responsive-img" src="https://lorempixel.com/200/200/nature/6">
+                                    <img class="responsive-img" src="https://lorempixel.com/200/320/nature/6">
                                 </div>
                                 <div class="card-stacked tabs-fixed-width">
                                     <div class="card-content">
-                                        <p class="center-align">{{ grant.grant_title }}</p>
+                                        <p class="center-align"><strong>{{ grant.grant_title }}</strong></p>
                                         <div class="card">
                                             <div class="card-tabs">
                                                 <ul class="tabs">
@@ -86,12 +86,38 @@
                                                                         <span class="navy"><em>
                                                                         {{ grant.grant_description }} </em></span>
                                                                     </p>
+                                                                    <br>
+                                                                    <p>
+                                                                        <strong>Application Link:</strong>
+                                                                            <span class="navy"><em>
+                                                                                <a href="">{{ grant.application_link }} </a>
+                                                                            </em></span>
+                                                                    </p>
                                                                 </p>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
+                                                <div id="tab3">
+                                                    <div class="row">
+                                                        <div class="col s12">
+                                                            <div class="col s12 m6 ">
+                                                                <p><strong>Website:  </strong>
+                                                                    <span class="navy"><em>
+                                                                        <a href="">{{ grant.website }}</a> 
+                                                                    </em></span>
+                                                                </p>
+                                                            </div>
+                                                            <div class="col s12 m6 ">
+                                                                <p><strong>Additional Information: </strong>
+                                                                    <span class="navy"><em>
+                                                                        <a href="">{{ grant.support_docs }} </a>
+                                                                    </em></span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -125,3 +151,19 @@
 
 {% endblock %}
 
+<div class="col s12">
+    <p><strong>Website: </strong>
+        <p>
+            <span class="navy"><em>
+                {{ grant.website }} </em></span>
+        </p>
+        <br>
+        <p>
+            <strong>Additional Information:</strong>
+                <span class="navy"><em>
+
+                    <a href="">{{ grant.support_docs }} </a>
+                </em></span>
+        </p>
+    </p>
+</div>
