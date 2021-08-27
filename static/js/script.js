@@ -5,7 +5,7 @@ $(document).ready(function () {
   $('.tabs').tabs();
   $('.datepicker').datepicker({
     format: "dd mmmm, yyyy",
-    yearRange: 5,
+    yearRange: 4,
     showClearBtn: true,
     i18n: {
       done: "Select"
