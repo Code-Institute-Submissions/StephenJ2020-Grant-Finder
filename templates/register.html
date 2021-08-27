@@ -48,18 +48,9 @@
                     <i class="fas fa-building prefix navy"></i>
                     <select id="organisation" name="organisation" required>
                         <option value="" disabled selected>Please select an option</option>
-                        <option value="1">Government Body</option>
-                        <option value="2">County Council</option>
-                        <option value="3">Semi-State Agency</option>
-                        <option value="4">National Lottery</option>
-                        <option value="5">N.G.O.</option>
-                        <option value="6">Corporate / Business entity</option>
-                        <option value="7">Community Group</option>
-                        <option value="8">Club / Society</option>
-                        <option value="9">Event / Festival Organiser</option>
-                        <option value="10">Philanthropist</option>
-                        <option value="11">Entrepreneur</option>
-                        <option value="12">Individual</option>
+                        {% for organisation in organisations %}
+                            <option value="{{ organisation.organisation_name }}">{{ organisation.organisation_name }}</option>
+                        {% endfor %}
                     </select>
                     <label for="organisation">Organisation:</label>
                 </div>

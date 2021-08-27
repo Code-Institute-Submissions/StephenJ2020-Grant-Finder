@@ -56,7 +56,8 @@ def register():
         flash("or add details of a new grant to share with other users.")
         return redirect(url_for("my_account", username=session["user"]))
 
-    return render_template("register.html")
+    organisations = mongo.db.organisations.find().sort("organisation_name", 1)
+    return render_template("register.html", organisations=organisations)
 
 
 @app.route("/login", methods=["GET", "POST"])
