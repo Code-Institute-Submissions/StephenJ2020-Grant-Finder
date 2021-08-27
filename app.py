@@ -56,6 +56,7 @@ def register():
         flash("or add details of a new grant to share with other users.")
         return redirect(url_for("my_account", username=session["user"]))
 
+    # Dynamically generate organisation options
     organisations = mongo.db.organisations.find().sort("organisation_name", 1)
     return render_template("register.html", organisations=organisations)
 
@@ -71,7 +72,9 @@ def login():
             # Check password matches user input
             if check_password_hash(
                existing_user["password"], request.form.get("password")):
-                session["user"] = request.form.get("username").lower()
+                session["user"] = request.form.get(
+                    "username", "first_name").lower()
+                # added first_name above but may need to remove again
                 # session["user"] = request.form.get("firstName")
                 flash("Welcome, {}".format(
                     request.form.get("username")))
@@ -113,8 +116,26 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_grant")
+@app.route("/add_grant", methods=["GET", "POST"])
 def add_grant():
+    if request.method == "POST":
+        is_recurring = "Yes" if request.form.get("is_recurring") else "No"
+        grant = {
+            "grant_title": request.form.get("grant_title"),
+            "issuing_body": request.form.get("issuing_body"),
+            "category_name": request.form.get("category_name"),
+            "opening_date": request.form.get("opening_date"),
+            "closing_date": request.form.get("closing_date"),
+            "grant_description": request.form.get("grant_description"),
+            "website": request.form.get("website"),
+            "support_docs": request.form.get("support_docs"),
+            "application_link": request.form.get("application_link"),
+            "is_recurring": is_recurring,
+            "created_by": session["user"]
+        }
+        mongo.db.grants.insert_one(grant)
+        flash("Grant Details Successfully Added")
+        return redirect(url_for("get_grants"))
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_grant.html", categories=categories)
 
