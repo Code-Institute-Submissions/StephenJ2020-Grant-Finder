@@ -221,10 +221,13 @@ the desktop view and I'm satisfied it works.
 The entire testing process, issues and bugs found during development, solutions, and final results can be found [here]().
 
 - Development Notes  
+
+Original two codpens I wanted to use for the page layout proved to complicated to implement so I add to find an alternative SVG wave separator to use which I was able to maniptlate.
   
   Materalize Select / dropdown - unsure if took name attribute  
   --> https://stackoverflow.com/questions/39130659/materialize-css-select-does-not-have-name-nor-proper-value-in-dom    
       
+On grants.html I had forgottent to change the tab numbers for the second card which I had copied from the first card for left-hand side layout and I had the "Created By" div one row too far down the code. This was easy enough to correct but contents of the columns is still overlaping as the external url's are too long and the section container holding the two cards isn't resizing as new grants are added. Plus layout issue with the materalize tabs is likely to return once I add additional new grants as odd numbered left-hand layout will all have tabs 1,2 & 3 and even numbered right-hand tabs will all have tabs 4,5 & 6.
         
 - Bugs
   
