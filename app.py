@@ -167,6 +167,13 @@ def edit_grant(grant_id):
         grant=grant, categories=categories)
 
 
+@app.route("/delete_grant/<grant_id>")
+def delete_grant():
+    mongo.db.grant.remove({"_id": ObjectId(grant_id)})
+    flash("Grant Details Successfully Deleted")
+    return redirect(url_for("get_grants"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
