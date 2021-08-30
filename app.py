@@ -140,6 +140,13 @@ def add_grant():
     return render_template("add_grant.html", categories=categories)
 
 
+@app.route("/edit_grant/<grant_id>", methods=["GET", "POST"])
+def edit_grant(grant_id):
+    grant = mongo.db.grants.find_one({"_id": ObjectId(grant_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("edit_grant.html", grant=grant, categories=categories)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="center-align">Edit Grant</h3>
+    <div class="row">
+        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('edit_grant', grant_id=grant._id) }}">
+            <div class="card-panel">
+                <!-- Grant Title -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-bullhorn prefix navy"></i>
+                        <input id="grant_title" name="grant_title" type="text" minlength="5"
+                            maxlength="30" pattern="^[a-zA-Z0-9, .]{5,30}$" class="validate" required>
+                        <label for="grant_title">Grant Title:</label>
+                    </div>
+                </div>
+                <!-- Issuing Body & Category-->
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <i class="fas fa-landmark prefix navy"></i>
+                        <input id="issuing_body" name="issuing_body" type="text" minlength="5"
+                            maxlength="50" pattern="^[a-zA-Z0-9,& .]{5,50}$" class="validate" required>
+                        <label for="issuing_body">Issuing Body:</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <i class="far fa-folder-open prefix navy"></i>
+                        <select id="category_name" name="category_name" required>
+                            <option value="" disabled selected>Choose Category</option>
+                            {% for category in categories %}
+                                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="category_name">Category:</label>
+                    </div>
+                </div>
+                <!-- Opening & Closing Dates -->
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <i class="far fa-calendar-check prefix navy"></i>
+                        <input id="opening_date" name="opening_date" type="text"
+                        class="datepicker validate" required>
+                        <label for="opening_date">Opening Date:</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <i class="fas fa-calendar-times prefix navy"></i>
+                        <input id="closing_date" name="closing_date" type="text"
+                        class="datepicker validate" required>
+                        <label for="closing_date">Closing Date:</label>
+                    </div>
+                </div>
+                <!-- Grant Description -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-briefcase prefix navy"></i>
+                        <textarea id="grant_description" name="grant_description" minlength="20" maxlength="200"
+                        class="materialize-textarea validate" required></textarea>
+                        <label for="grant_description">Grant Description</label>
+                    </div>
+                </div>
+                <!-- Website & Supporting Documentation -->
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <i class="fas fa-globe prefix navy"></i>
+                        <input id="website" name="website" type="text" class="validate" required>
+                        <label for="website">Website:</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <i class="fas fa-question-circle prefix navy"></i>
+                        <input id="support_docs" name="support_docs" type="text" class="validate" required>
+                        <label for="support_docs">Supporting Documentation:</label>
+                    </div>
+                </div>
+                <!-- Application Link -->
+                <div class="row">
+                    <div class="input-field col s12 m8">
+                        <i class="fas fa-link prefix navy"></i>
+                        <input id="application_link" name="application_link" type="text" class="validate">
+                        <label for="application_link">Application Link:</label>
+                    </div>
+                    <div class="input-field col s12 m4">
+                        <div class="switch">
+                            <label for="is_recurring">
+                                Recurring:
+                                <input type="checkbox" id="is_recurring" name="is_recurring">
+                                <span class="lever"></span>
+                                Yes
+                            </label>
+
+                            </a><i class="fas fa-sync prefix navy tooltipped" data-position="bottom"
+                                data-tooltip="Open for applications monthly / annually"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- submit -->
+                <div class="row">
+                    <button type="submit" class="col s12 btn-large">
+                        Edit Grant Details &nbsp;<i class="fas fa-edit"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
