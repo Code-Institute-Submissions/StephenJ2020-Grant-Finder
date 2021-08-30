@@ -136,15 +136,35 @@ def add_grant():
         mongo.db.grants.insert_one(grant)
         flash("Grant Details Successfully Added")
         return redirect(url_for("get_grants"))
+
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_grant.html", categories=categories)
 
 
 @app.route("/edit_grant/<grant_id>", methods=["GET", "POST"])
 def edit_grant(grant_id):
+    if request.method == "POST":
+        is_recurring = "Yes" if request.form.get("is_recurring") else "No"
+        submit = {
+            "grant_title": request.form.get("grant_title"),
+            "issuing_body": request.form.get("issuing_body"),
+            "category_name": request.form.get("category_name"),
+            "opening_date": request.form.get("opening_date"),
+            "closing_date": request.form.get("closing_date"),
+            "grant_description": request.form.get("grant_description"),
+            "website": request.form.get("website"),
+            "support_docs": request.form.get("support_docs"),
+            "application_link": request.form.get("application_link"),
+            "is_recurring": is_recurring,
+            "created_by": session["user"]
+        }
+        mongo.db.grants.update({"_id": ObjectId(grant_id)}, submit)
+        flash("Grant Details Successfully Updated")
+
     grant = mongo.db.grants.find_one({"_id": ObjectId(grant_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("edit_grant.html", grant=grant, categories=categories)
+    return render_template("edit_grant.html",
+        grant=grant, categories=categories)
 
 
 if __name__ == "__main__":
