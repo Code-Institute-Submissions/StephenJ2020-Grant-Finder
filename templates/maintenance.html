@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3 class="center-align">Manage Elements</h3>
+
+<div class="row">
+  <div class="col s12 m3">
+    <h4 class="center-align">Manage Categories</h4>
+    {% for category in categories %}
+    <div class="col s12">
+      <div class="card bg-dark-gray">
+        <div class="card-content white-text">
+          <span class="card-title">{{ category.category_name }}</span>
+        </div>
+        <div class="card-action">
+          <a href="#" class="waves-effect waves-light btn-small">Edit</a>
+          <a href="#" class="waves-effect waves-light btn-small red lighten-1">Delete</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+<!-- </div> -->
+<!-- Manager Users -->
+<!-- <div class="row"> -->
+  <div class="col s12 m3">
+    <h4 class="center-align">Manage Users</h4>
+    {% for user in users %}
+    <div class="col s12">
+      <div class="card bg-dark-gray">
+        <div class="card-content white-text">
+          <span class="card-title">{{ user.username }}</span>
+        </div>
+        <div class="card-action">
+          <a href="#" class="waves-effect waves-light btn-small">Edit</a>
+          <a href="#" class="waves-effect waves-light btn-small red lighten-1">Delete</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+<!-- </div> -->
+<!-- Manager Organisations -->
+<!-- <div class="row"> -->
+  <div class="col s12 m3">
+    <h4 class="center-align">Manage Organisations</h4>
+    {% for organisation in organisations %}
+    <div class="col s12">
+      <div class="card bg-dark-gray">
+        <div class="card-content white-text">
+          <span class="card-title">{{ organisation.organisation_name }}</span>
+        </div>
+        <div class="card-action">
+          <a href="#" class="waves-effect waves-light btn-small">Edit</a>
+          <a href="#" class="waves-effect waves-light btn-small red lighten-1">Delete</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
