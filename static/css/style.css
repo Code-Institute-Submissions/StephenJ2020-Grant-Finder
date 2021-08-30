@@ -73,10 +73,9 @@ header .col{
 
 .section-container{
   width: 100vw;
-  height: 80vh;
+  height: fit-content;
   background-color: #f6f7eb;
   margin-top: 6rem;
-
 }
 
 /* add_grant.html */
