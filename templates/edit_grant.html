@@ -10,7 +10,7 @@
                     <div class="input-field col s12">
                         <i class="fas fa-bullhorn prefix navy"></i>
                         <input id="grant_title" name="grant_title" type="text" minlength="5"
-                            maxlength="30" pattern="^[a-zA-Z0-9, .]{5,30}$" class="validate" required>
+                            maxlength="30" value="{{ grant.grant_title }}" pattern="^[a-zA-Z0-9, .]{5,30}$" class="validate" required>
                         <label for="grant_title">Grant Title:</label>
                     </div>
                 </div>
@@ -19,15 +19,19 @@
                     <div class="input-field col s12 m6">
                         <i class="fas fa-landmark prefix navy"></i>
                         <input id="issuing_body" name="issuing_body" type="text" minlength="5"
-                            maxlength="50" pattern="^[a-zA-Z0-9,& .]{5,50}$" class="validate" required>
+                            maxlength="50" value="{{ grant.issuing_body }}" pattern="^[a-zA-Z0-9,& .]{5,50}$" class="validate" required>
                         <label for="issuing_body">Issuing Body:</label>
                     </div>
                     <div class="input-field col s12 m6">
                         <i class="far fa-folder-open prefix navy"></i>
                         <select id="category_name" name="category_name" required>
-                            <option value="" disabled selected>Choose Category</option>
+                            <option value="" disabled>Choose Category</option>
                             {% for category in categories %}
-                                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                                {% if category.category_name == grant.category_name %}
+                                    <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                                {% else %}
+                                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                                {% endif %}
                             {% endfor %}
                         </select>
                         <label for="category_name">Category:</label>
@@ -37,13 +41,13 @@
                 <div class="row">
                     <div class="input-field col s12 m6">
                         <i class="far fa-calendar-check prefix navy"></i>
-                        <input id="opening_date" name="opening_date" type="text"
+                        <input id="opening_date" name="opening_date" type="text" value="{{ grant.opening_date }}"
                         class="datepicker validate" required>
                         <label for="opening_date">Opening Date:</label>
                     </div>
                     <div class="input-field col s12 m6">
                         <i class="fas fa-calendar-times prefix navy"></i>
-                        <input id="closing_date" name="closing_date" type="text"
+                        <input id="closing_date" name="closing_date" type="text" value="{{ grant.closing_date }}"
                         class="datepicker validate" required>
                         <label for="closing_date">Closing Date:</label>
                     </div>
@@ -53,7 +57,9 @@
                     <div class="input-field col s12">
                         <i class="fas fa-briefcase prefix navy"></i>
                         <textarea id="grant_description" name="grant_description" minlength="20" maxlength="200"
-                        class="materialize-textarea validate" required></textarea>
+                            class="materialize-textarea validate" required>
+                            {{- grant.grant_description -}}
+                        </textarea>
                         <label for="grant_description">Grant Description</label>
                     </div>
                 </div>
@@ -61,12 +67,12 @@
                 <div class="row">
                     <div class="input-field col s12 m6">
                         <i class="fas fa-globe prefix navy"></i>
-                        <input id="website" name="website" type="text" class="validate" required>
+                        <input id="website" name="website" type="text" value="{{ grant.website }}" class="validate" required>
                         <label for="website">Website:</label>
                     </div>
                     <div class="input-field col s12 m6">
                         <i class="fas fa-question-circle prefix navy"></i>
-                        <input id="support_docs" name="support_docs" type="text" class="validate" required>
+                        <input id="support_docs" name="support_docs" type="text" value="{{ grant.support_docs }}" class="validate" required>
                         <label for="support_docs">Supporting Documentation:</label>
                     </div>
                 </div>
@@ -74,14 +80,18 @@
                 <div class="row">
                     <div class="input-field col s12 m8">
                         <i class="fas fa-link prefix navy"></i>
-                        <input id="application_link" name="application_link" type="text" class="validate">
+                        <input id="application_link" name="application_link" type="text" value="{{ grant.application_link }}" class="validate">
                         <label for="application_link">Application Link:</label>
                     </div>
                     <div class="input-field col s12 m4">
                         <div class="switch">
                             <label for="is_recurring">
                                 Recurring:
-                                <input type="checkbox" id="is_recurring" name="is_recurring">
+                                {% if grant.is_recurring == "Yes" %}
+                                    <input type="checkbox" id="is_recurring" name="is_recurring" checked>
+                                {% else %}
+                                    <input type="checkbox" id="is_recurring" name="is_recurring">
+                                {% endif %}
                                 <span class="lever"></span>
                                 Yes
                             </label>
@@ -93,9 +103,12 @@
                 </div>
                 <!-- submit -->
                 <div class="row">
-                    <button type="submit" class="col s12 btn-large">
+                    <button type="submit" class="col s8 btn-large">
                         Edit Grant Details &nbsp;<i class="fas fa-edit"></i>
                     </button>
+                    <a href="{{ url_for('get_grants') }}" class="col s4 waves-effect waves-light btn-large red lighten-1">
+                        Cancel Update &nbsp;<i class="fas fa-window-close"></i>
+                    </a>
                 </div>
             </div>
         </form>
