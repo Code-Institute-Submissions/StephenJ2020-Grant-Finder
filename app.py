@@ -163,8 +163,8 @@ def edit_grant(grant_id):
 
     grant = mongo.db.grants.find_one({"_id": ObjectId(grant_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("edit_grant.html",
-        grant=grant, categories=categories)
+    return render_template("edit_grant.html", grant=grant,
+            categories=categories)
 
 
 @app.route("/delete_grant/<grant_id>")
@@ -172,6 +172,16 @@ def delete_grant():
     mongo.db.grant.remove({"_id": ObjectId(grant_id)})
     flash("Grant Details Successfully Deleted")
     return redirect(url_for("get_grants"))
+
+
+@app.route("/get_maintenance")
+def get_maintenance():
+    categories = list(mongo.db.categories.find().sort("category_name", 1))
+    users = list(mongo.db.users.find().sort("username", 1))
+    organisations = list(mongo.db.organisations.find().sort(
+        "organisation_name", 1))
+    return render_template("maintenance.html", categories=categories,
+        users=users, organisations=organisations)
 
 
 if __name__ == "__main__":
