@@ -231,6 +231,20 @@ def add_organisation():
     return render_template("add_organisation.html")
 
 
+@app.route("/edit_organisation/<organisation_id>", methods=["GET", "POST"])
+def edit_organisation(organisation_id):
+    if request.method == "POST":
+        submit = {
+            "organisation_name": request.form.get("organisation_name")
+        }
+        mongo.db.organisation.update({"_id": ObjectId(organisation_id)}, submit)
+        flash("Organisation Succesfully Updated")
+        return redirect(url_for("get_maintenance"))
+
+    organisation = mongo.db.organisations.find_one({"_id": ObjectId(organisation_id)})
+    return render_template("edit_organisation.html", organisation=organisation)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
