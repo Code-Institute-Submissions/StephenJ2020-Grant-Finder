@@ -237,12 +237,21 @@ def edit_organisation(organisation_id):
         submit = {
             "organisation_name": request.form.get("organisation_name")
         }
-        mongo.db.organisation.update({"_id": ObjectId(organisation_id)}, submit)
+        mongo.db.organisation.update({"_id": ObjectId(organisation_id)},
+            submit)
         flash("Organisation Succesfully Updated")
         return redirect(url_for("get_maintenance"))
 
-    organisation = mongo.db.organisations.find_one({"_id": ObjectId(organisation_id)})
+    organisation = mongo.db.organisations.find_one({"_id": ObjectId(
+        organisation_id)})
     return render_template("edit_organisation.html", organisation=organisation)
+
+
+@app.route("/delete_organisation/<organisation_id>")
+def delete_organisation(organisation_id):
+    mongo.db.organisations.remove({"_id": ObjectId(organisation_id)})
+    flash("Organisation Successfully Deleted")
+    return redirect(url_for("get_maintenance"))
 
 
 if __name__ == "__main__":
