@@ -205,7 +205,7 @@ def edit_category(category_id):
         }
         mongo.db.categories.update({"_id": ObjectId(category_id)}, submit)
         flash("Category Succesfully Updated")
-        return render_template(url_for("get_maintenance"))
+        return redirect(url_for("get_maintenance"))
 
     category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
     return render_template("edit_category.html", category=category)
