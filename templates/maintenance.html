@@ -6,6 +6,13 @@
 <div class="row">
   <div class="col s12 m4">
     <h4 class="center-align">Manage Categories</h4>
+    <div class="row">
+      <div class="col s12 center-align">
+        <a href="{{ url_for('add_category') }}" class="waves-effect waves-light btn-large">
+          Add Category <i class="fas fa-plus-square right"></i>
+        </a>
+      </div>
+    </div>
     {% for category in categories %}
     <div class="col s12">
       <div class="card bg-dark-gray">
@@ -13,8 +20,8 @@
           <span class="card-title">{{ category.category_name }}</span>
         </div>
         <div class="card-action">
-          <a href="#" class="waves-effect waves-light btn-small">Edit</a>
-          <a href="#" class="waves-effect waves-light btn-small red lighten-1">Delete</a>
+          <a href="{{ url_for('edit_category', category_id=category._id) }}" class="waves-effect waves-light btn-small">Edit</a>
+          <a href="{{ url_for('delete_category', category_id=category._id) }}" class="waves-effect waves-light btn-small red lighten-1">Delete</a>
         </div>
       </div>
     </div>
@@ -44,6 +51,13 @@
 <!-- <div class="row"> -->
   <div class="col s12 m4">
     <h4 class="center-align">Manage Organisations</h4>
+    <div class="row">
+      <div class="col s12 center-align">
+        <a href="{{ url_for('add_organisation') }}" class="waves-effect waves-light btn-large">
+          Add Organisation <i class="fas fa-plus-square right"></i>
+        </a>
+      </div>
+    </div>
     {% for organisation in organisations %}
     <div class="col s12">
       <div class="card bg-dark-gray">
@@ -51,8 +65,8 @@
           <span class="card-title">{{ organisation.organisation_name }}</span>
         </div>
         <div class="card-action">
-          <a href="#" class="waves-effect waves-light btn-small">Edit</a>
-          <a href="#" class="waves-effect waves-light btn-small red lighten-1">Delete</a>
+          <a href="{{ url_for('edit_organisation', organisation_id=organisation._id) }}" class="waves-effect waves-light btn-small">Edit</a>
+          <a href="{{ url_for('delete_organisation', organisation_id=organisation._id) }}" class="waves-effect waves-light btn-small red lighten-1">Delete</a>
         </div>
       </div>
     </div>

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="center-align">Edit Category</h3>
+    <div class="row">
+        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('edit_category', category_id=category._id) }}">
+            <div class="card-panel">
+                <!-- Category Name -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="far fa-folder-open prefix navy"></i>
+                        <input id="category_name" name="category_name" type="text"
+                            value="{{ category.category_name }}" minlength="3" maxlength="30"
+                            pattern="^[a-zA-Z0-9, .]{3,30}$" class="validate" required>
+                        <label for="category_name">Category Name:</label>
+                    </div>
+                </div>
+                <!-- submit -->
+                <div class="row">
+                    <button type="submit" class="col s12 m8 btn-large">
+                        Edit Category &nbsp;<i class="fas fa-edit right"></i>
+                    </button>
+                    <a href="{{ url_for('get_maintenance') }}" class="col s4 waves-effect waves-light btn-large red lighten-1">
+                        Cancel Update &nbsp;<i class="fas fa-window-close"></i>
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

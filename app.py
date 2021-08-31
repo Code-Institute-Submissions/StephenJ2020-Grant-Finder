@@ -184,6 +184,76 @@ def get_maintenance():
         users=users, organisations=organisations)
 
 
+@app.route("/add_category", methods=["GET", "POST"])
+def add_category():
+    if request.method == "POST":
+        category = {
+            "category_name": request.form.get("category_name")
+        }
+        mongo.db.categories.insert_one(category)
+        flash("New Category Successfully Added")
+        return redirect(url_for("get_maintenance"))
+
+    return render_template("add_category.html")
+
+
+@app.route("/edit_category/<category_id>", methods=["GET", "POST"])
+def edit_category(category_id):
+    if request.method == "POST":
+        submit = {
+            "category_name": request.form.get("category_name")
+        }
+        mongo.db.categories.update({"_id": ObjectId(category_id)}, submit)
+        flash("Category Succesfully Updated")
+        return redirect(url_for("get_maintenance"))
+
+    category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+    return render_template("edit_category.html", category=category)
+
+
+@app.route("/delete_category/<category_id>")
+def delete_category(category_id):
+    mongo.db.categories.remove({"_id": ObjectId(category_id)})
+    flash("Category Successfully Deleted")
+    return redirect(url_for("get_maintenance"))
+
+
+@app.route("/add_organisation", methods=["GET", "POST"])
+def add_organisation():
+    if request.method == "POST":
+        organisation = {
+            "organisation_name": request.form.get("organisation_name")
+        }
+        mongo.db.organisations.insert_one(organisation)
+        flash("New Organisation Successfully Added")
+        return redirect(url_for("get_maintenance"))
+
+    return render_template("add_organisation.html")
+
+
+@app.route("/edit_organisation/<organisation_id>", methods=["GET", "POST"])
+def edit_organisation(organisation_id):
+    if request.method == "POST":
+        submit = {
+            "organisation_name": request.form.get("organisation_name")
+        }
+        mongo.db.organisation.update({"_id": ObjectId(organisation_id)},
+            submit)
+        flash("Organisation Succesfully Updated")
+        return redirect(url_for("get_maintenance"))
+
+    organisation = mongo.db.organisations.find_one({"_id": ObjectId(
+        organisation_id)})
+    return render_template("edit_organisation.html", organisation=organisation)
+
+
+@app.route("/delete_organisation/<organisation_id>")
+def delete_organisation(organisation_id):
+    mongo.db.organisations.remove({"_id": ObjectId(organisation_id)})
+    flash("Organisation Successfully Deleted")
+    return redirect(url_for("get_maintenance"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
