@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="center-align">Add New Category</h3>
+    <div class="row">
+        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('add_category') }}">
+            <div class="card-panel">
+                <!-- Category Name -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="far fa-folder-open prefix navy"></i>
+                        <input id="category_name" name="category_name" type="text" minlength="3"
+                            maxlength="30" pattern="^[a-zA-Z0-9, .]{3,30}$" class="validate" required>
+                        <label for="category_name">Category Name:</label>
+                    </div>
+                </div>
+                <!-- submit -->
+                <div class="row">
+                    <button type="submit" class="col s12 btn-large">
+                        Add New Category &nbsp;<i class="fas fa-sign-in-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

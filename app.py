@@ -184,6 +184,11 @@ def get_maintenance():
         users=users, organisations=organisations)
 
 
+@app.route("/add_category", methods=["GET", "POST"])
+def add_category():
+    return render_template("add_category.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
