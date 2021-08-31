@@ -218,6 +218,19 @@ def delete_category(category_id):
     return redirect(url_for("get_maintenance"))
 
 
+@app.route("/add_organisation", methods=["GET", "POST"])
+def add_organisation():
+    if request.method == "POST":
+        organisation = {
+            "organisation_name": request.form.get("organisation_name")
+        }
+        mongo.db.organisations.insert_one(organisation)
+        flash("New Organisation Successfully Added")
+        return redirect(url_for("get_maintenance"))
+
+    return render_template("add_organisation.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
