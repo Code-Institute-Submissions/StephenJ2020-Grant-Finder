@@ -244,7 +244,7 @@ def edit_organisation(organisation_id):
         submit = {
             "organisation_name": request.form.get("organisation_name")
         }
-        mongo.db.organisation.update({"_id": ObjectId(organisation_id)},
+        mongo.db.organisations.update({"_id": ObjectId(organisation_id)},
             submit)
         flash("Organisation Succesfully Updated")
         return redirect(url_for("get_maintenance"))
