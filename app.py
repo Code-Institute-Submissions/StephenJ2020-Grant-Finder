@@ -28,6 +28,13 @@ def get_grants():
     return render_template("grants.html", grants=grants)
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    grants = list(mongo.db.grants.find({"$text": {"$search": query}}))
+    return render_template("grants.html", grants=grants)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -237,7 +244,7 @@ def edit_organisation(organisation_id):
         submit = {
             "organisation_name": request.form.get("organisation_name")
         }
-        mongo.db.organisation.update({"_id": ObjectId(organisation_id)},
+        mongo.db.organisations.update({"_id": ObjectId(organisation_id)},
             submit)
         flash("Organisation Succesfully Updated")
         return redirect(url_for("get_maintenance"))
@@ -251,6 +258,33 @@ def edit_organisation(organisation_id):
 def delete_organisation(organisation_id):
     mongo.db.organisations.remove({"_id": ObjectId(organisation_id)})
     flash("Organisation Successfully Deleted")
+    return redirect(url_for("get_maintenance"))
+
+
+@app.route("/edit_user/<user_id>", methods=["GET", "POST"])
+def edit_user(user_id):
+    if request.method == "POST":
+        submit = {
+            "first_name": request.form.get("first_name"),
+            "last_name": request.form.get("last_name"),
+            "email": request.form.get("email"),
+            "username": request.form.get("username"),
+            "password": generate_password_hash(request.form.get("password")),
+            "organisation": request.form.get("organisation"),
+            "website": request.form.get("website")
+        }
+        mongo.db.users.update({"_id": ObjectId(user_id)}, submit)
+        flash("User Details Succesfully Updated")
+        return redirect(url_for("get_maintenance"))
+
+    user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
+    return render_template("edit_user.html", user=user)
+
+
+@app.route("/delete_user/<user_id>")
+def delete_user(user_id):
+    mongo.db.users.remove({"_id": ObjectId(user_id)})
+    flash("User Successfully Deleted")
     return redirect(url_for("get_maintenance"))
 
 
