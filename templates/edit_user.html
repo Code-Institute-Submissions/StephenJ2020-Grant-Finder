@@ -46,13 +46,13 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-building prefix navy"></i>
-                    <select id="organisation" name="organisation" required>
+                    <select id="organisation_name" name="organisation_name" required>
                         <option value="" disabled>Please select an option</option>
                         {% for organisation in organisations %}
                             <option value="{{ organisation.organisation_name }}">{{ organisation.organisation_name }}</option>
                         {% endfor %}
                     </select>
-                    <label for="organisation">Organisation:</label>
+                    <label for="organisation_name">Organisation:</label>
                 </div>
             </div>
             <!-- Website / LinkedIn Profile -->

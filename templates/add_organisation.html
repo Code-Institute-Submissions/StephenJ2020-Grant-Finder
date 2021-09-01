@@ -16,9 +16,12 @@
                 </div>
                 <!-- submit -->
                 <div class="row">
-                    <button type="submit" class="col s12 btn-large">
+                    <button type="submit" class="col s12 m8 btn-large">
                         Add New Organisation &nbsp;<i class="fas fa-sign-in-alt"></i>
                     </button>
+                    <a href="{{ url_for('get_maintenance') }}" class="col s4 waves-effect waves-light btn-large red lighten-1">
+                        Cancel Update &nbsp;<i class="fas fa-window-close"></i>
+                    </a>
                 </div>
             </div>
         </form>
