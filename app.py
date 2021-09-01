@@ -168,7 +168,7 @@ def edit_grant(grant_id):
 
 
 @app.route("/delete_grant/<grant_id>")
-def delete_grant():
+def delete_grant(grant_id):
     mongo.db.grant.remove({"_id": ObjectId(grant_id)})
     flash("Grant Details Successfully Deleted")
     return redirect(url_for("get_grants"))
