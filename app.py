@@ -28,6 +28,13 @@ def get_grants():
     return render_template("grants.html", grants=grants)
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    grants = list(mongo.db.grants.find({"$text": {"$search": query}}))
+    return render_template("grants.html", grants=grants)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
