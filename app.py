@@ -261,6 +261,26 @@ def delete_organisation(organisation_id):
     return redirect(url_for("get_maintenance"))
 
 
+@app.route("/edit_user/<user_id>", methods=["GET", "POST"])
+def edit_user(user_id):
+    if request.method == "POST":
+        submit = {
+            "first_name": request.form.get("first_name"),
+            "last_name": request.form.get("last_name"),
+            "email": request.form.get("email"),
+            "username": request.form.get("username"),
+            "password": generate_password_hash(request.form.get("password")),
+            "organisation": request.form.get("organisation"),
+            "website": request.form.get("website")
+        }
+        mongo.db.users.update({"_id": ObjectId(user_id)}, submit)
+        flash("User Details Succesfully Updated")
+        return redirect(url_for("get_maintenance"))
+
+    user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
+    return render_template("edit_user.html", user=user)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
