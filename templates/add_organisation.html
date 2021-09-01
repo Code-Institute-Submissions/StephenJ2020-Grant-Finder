@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="center-align">Add New Organisation</h3>
+    <div class="row">
+        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('add_organisation') }}">
+            <div class="card-panel">
+                <!-- Organisation Name -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="far fa-building prefix navy"></i>
+                        <input id="organisation_name" name="organisation_name" type="text" minlength="3"
+                            maxlength="30" pattern="^[a-zA-Z0-9, .]{3,30}$" class="validate" required>
+                        <label for="organisation_name">Organisation Name:</label>
+                    </div>
+                </div>
+                <!-- submit -->
+                <div class="row">
+                    <button type="submit" class="col s12 btn-large">
+                        Add New Organisation &nbsp;<i class="fas fa-sign-in-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
