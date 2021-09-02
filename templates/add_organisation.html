@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-
+{% if session.user|lower == "admin" %}
     <h3 class="center-align">Add New Organisation</h3>
     <div class="row">
         <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('add_organisation') }}">
@@ -26,5 +26,13 @@
             </div>
         </form>
     </div>
-
+{% else %}
+<div class="row center-align">
+    <div class="col s12 m8 offset-m2">
+    <h4 class="center-align">Sorry, It appears that you are not signed in as an Admin User</h4>
+    <h5 class="center-align">Therefore you are not authorised to view this page!</h5>
+    <a href="{{ url_for('get_grants') }}" class="center-align">Please return to the Home Page - Thank you</a>
+    </div>
+</div>
+{% endif %}
 {% endblock %}
