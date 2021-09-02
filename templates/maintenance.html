@@ -1,121 +1,134 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="center-align">Manage Elements</h3>
 
-<div class="row">
-  <div class="col s12 m4">
-    <h4 class="center-align">Manage Categories</h4>
-    {% if session.user|lower == "admin" %}
-      <div class="row">
-        <div class="col s12 center-align">
-          <a href="{{ url_for('add_category') }}" class="waves-effect waves-light btn-large">
-            Add Category <i class="fas fa-plus-square right"></i>
-          </a>
-        </div>
-      </div>
-    {% endif %}
-    {% for category in categories %}
-    <div class="col s12">
-      <div class="card bg-dark-gray">
-        {% if session.user|lower == "admin" %}
-          <div class="card-content white-text">
-            <span class="card-title">{{ category.category_name }}</span>
+{% if session.user|lower == "admin" %}
+  <h3 class="center-align">Manage Elements</h3>
+  <div class="row">
+    <div class="col s12 m4">
+      <h4 class="center-align">Manage Categories</h4>
+      {% if session.user|lower == "admin" %}
+        <div class="row">
+          <div class="col s12 center-align">
+            <a href="{{ url_for('add_category') }}" class="waves-effect waves-light btn-large">
+              Add Category <i class="fas fa-plus-square right"></i>
+            </a>
           </div>
-          <div class="card-action">
-            <a href="{{ url_for('edit_category', category_id=category._id) }}"
-              class="waves-effect waves-light btn-small">Edit</a>
-            <!-- Modal Trigger -->
-            <a class="waves-effect waves-light btn-small red lighten-1 modal-trigger"
-              href="#confirm-delete{{ category._id }}">Delete</a>
+        </div>
+      {% endif %}
+      {% for category in categories %}
+      <div class="col s12">
+        <div class="card bg-dark-gray">
+          {% if session.user|lower == "admin" %}
+            <div class="card-content white-text">
+              <span class="card-title">{{ category.category_name }}</span>
+            </div>
+            <div class="card-action">
+              <a href="{{ url_for('edit_category', category_id=category._id) }}"
+                class="waves-effect waves-light btn-small">Edit</a>
+              <!-- Modal Trigger -->
+              <a class="waves-effect waves-light btn-small red lighten-1 modal-trigger"
+                href="#confirm-delete{{ category._id }}">Delete</a>
 
-            <!-- Modal Structure -->
-            <div id="confirm-delete{{ category._id }}" class="modal">
-              <div class="modal-content">
-                <h4>Are you Sure you want to permanently Delete this
-                  Category?</h4>
-                <p>
-                  <a href="{{ url_for('delete_category', category_id=category._id) }}"
-                    class="col s8 waves-effect waves-light btn-large modal-close">
-                    Confirm Delete &nbsp;<i class="fas fa-check-circle"></i>
-                  </a>
-                  <a href="{{ url_for('get_maintenance') }}"
-                    class="col s4 waves-effect waves-light btn-large red lighten-1 modal-close">
-                    Cancel Delete &nbsp;<i class="fas fa-window-close"></i>
-                  </a>
-                </p>
+              <!-- Modal Structure -->
+              <div id="confirm-delete{{ category._id }}" class="modal">
+                <div class="modal-content">
+                  <h4>Are you Sure you want to permanently Delete this
+                    Category?</h4>
+                  <p>
+                    <a href="{{ url_for('delete_category', category_id=category._id) }}"
+                      class="col s8 waves-effect waves-light btn-large modal-close">
+                      Confirm Delete &nbsp;<i class="fas fa-check-circle"></i>
+                    </a>
+                    <a href="{{ url_for('get_maintenance') }}"
+                      class="col s4 waves-effect waves-light btn-large red lighten-1 modal-close">
+                      Cancel Delete &nbsp;<i class="fas fa-window-close"></i>
+                    </a>
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        {% endif %}
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-<!-- Manager Users -->
-  <div class="col s12 m4">
-    <h4 class="center-align">Manage Users</h4>
-    {% for user in users %}
-    <div class="col s12">
-      <div class="card bg-gray">
-        <div class="card-content white-text">
-          <span class="card-title">{{ user.username }}</span>
-        </div>
-        <div class="card-action">
-          <a href="{{ url_for('edit_user', user_id=user._id) }}" class="waves-effect waves-light btn-small">Edit</a>
-          <a href="{{ url_for('delete_user', user_id=user._id) }}" class="waves-effect waves-light btn-small red lighten-1">Delete</a>
-        </div>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-<!-- Manager Organisations -->
-  <div class="col s12 m4">
-    <h4 class="center-align">Manage Organisations</h4>
-    <div class="row">
-      <div class="col s12 center-align">
-        <a href="{{ url_for('add_organisation') }}" class="waves-effect waves-light btn-large">
-          Add Organisation <i class="fas fa-plus-square right"></i>
-        </a>
-      </div>
-    </div>
-    {% for organisation in organisations %}
-    <div class="col s12">
-      <div class="card bg-dark-gray">
-        <div class="card-content white-text">
-          <span class="card-title">{{ organisation.organisation_name }}</span>
-        </div>
-        <div class="card-action">
-          {% if session.user|lower == "admin" %}
-          <a href="{{ url_for('edit_organisation', organisation_id=organisation._id) }}"
-            class="waves-effect waves-light btn-small">Edit</a>
-          <!-- Modal Trigger -->
-          <a class="waves-effect waves-light btn-small red lighten-1 modal-trigger"
-            href="#confirm-delete{{ organisation._id }}">Delete</a>
-
-          <!-- Modal Structure -->
-          <div id="confirm-delete{{ organisation._id }}" class="modal">
-            <div class="modal-content">
-              <h4>Are you Sure you want to permanently Delete this
-                Organisation?</h4>
-              <p>
-                <a href="{{ url_for('delete_organisation', organisation_id=organisation._id) }}"
-                  class="col s8 waves-effect waves-light btn-large modal-close">
-                  Confirm Delete &nbsp;<i class="fas fa-check-circle"></i>
-                </a>
-                <a href="{{ url_for('get_maintenance') }}"
-                  class="col s4 waves-effect waves-light btn-large red lighten-1 modal-close">
-                  Cancel Delete &nbsp;<i class="fas fa-window-close"></i>
-                </a>
-              </p>
-            </div>
-          </div>
           {% endif %}
         </div>
       </div>
+      {% endfor %}
     </div>
-    {% endfor %}
-  </div>
-</div>
+  <!-- Manager Users -->
+    <div class="col s12 m4">
+      <h4 class="center-align">Manage Users</h4>
+      {% if session.user|lower == "admin" %}
+        {% for user in users %}
+        <div class="col s12">
+          <div class="card bg-gray">
+            <div class="card-content white-text">
+              <span class="card-title">{{ user.username }}</span>
+            </div>
+            <div class="card-action">
+              <a href="{{ url_for('edit_user', user_id=user._id) }}" class="waves-effect waves-light btn-small">Edit</a>
+              <a href="{{ url_for('delete_user', user_id=user._id) }}" class="waves-effect waves-light btn-small red lighten-1">Delete</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  <!-- Manager Organisations -->
+    <div class="col s12 m4">
+      <h4 class="center-align">Manage Organisations</h4>
+      {% if session.user|lower == "admin" %}
+        <div class="row">
+          <div class="col s12 center-align">
+            <a href="{{ url_for('add_organisation') }}" class="waves-effect waves-light btn-large">
+              Add Organisation <i class="fas fa-plus-square right"></i>
+            </a>
+          </div>
+        </div>
+      {% endif %}
+      {% for organisation in organisations %}
+      <div class="col s12">
+        <div class="card bg-dark-gray">
+          {% if session.user|lower == "admin" %}
+            <div class="card-content white-text">
+              <span class="card-title">{{ organisation.organisation_name }}</span>
+            </div>
+            <div class="card-action">
+              <a href="{{ url_for('edit_organisation', organisation_id=organisation._id) }}"
+                class="waves-effect waves-light btn-small">Edit</a>
+              <!-- Modal Trigger -->
+              <a class="waves-effect waves-light btn-small red lighten-1 modal-trigger"
+                href="#confirm-delete{{ organisation._id }}">Delete</a>
 
+              <!-- Modal Structure -->
+              <div id="confirm-delete{{ organisation._id }}" class="modal">
+                <div class="modal-content">
+                  <h4>Are you Sure you want to permanently Delete this
+                    Organisation?</h4>
+                  <p>
+                    <a href="{{ url_for('delete_organisation', organisation_id=organisation._id) }}"
+                      class="col s8 waves-effect waves-light btn-large modal-close">
+                      Confirm Delete &nbsp;<i class="fas fa-check-circle"></i>
+                    </a>
+                    <a href="{{ url_for('get_maintenance') }}"
+                      class="col s4 waves-effect waves-light btn-large red lighten-1 modal-close">
+                      Cancel Delete &nbsp;<i class="fas fa-window-close"></i>
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+{% else %}
+  <div class="row center-align">
+    <div class="col s12 m8 offset-m2">
+      <h4 class="center-align">Sorry, It appears that you are not signed in as an Admin User</h4>
+      <h5 class="center-align">Therefore you are not authorised to view this page!</h5>
+      <a href="{{ url_for('get_grants') }}" class="center-align">Please return to the Home Page - Thank you</a>
+    </div>
+  </div>
+{% endif %}
 {% endblock %}
