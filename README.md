@@ -231,6 +231,10 @@ On grants.html I had forgottent to change the tab numbers for the second card wh
         
 - Bugs
   
+  Materialize Modal ID's  
+  https://stackoverflow.com/questions/7537439/how-to-increment-a-variable-on-a-for-loop-in-jinja-template  
+  https://www.youtube.com/watch?v=8OuSc0Q_4tI  
+  https://www.youtube.com/watch?v=Krrb2M8PwEQ  
   
   
 
