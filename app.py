@@ -87,9 +87,6 @@ def login():
                     request.form.get("username")))
                 return redirect(url_for(
                     "my_account", username=session["user"]))
-                # flash("Welcome, {}", mongo.db.user.find_one("firstName"))
-                # flash("Welcome, {}".format.mongo.db.user.find_one(
-                # "firstName"))
             else:
                 # Invalid Password
                 flash("Incorrect Username and/or Password")
@@ -176,7 +173,7 @@ def edit_grant(grant_id):
 
 @app.route("/delete_grant/<grant_id>")
 def delete_grant(grant_id):
-    mongo.db.grant.remove({"_id": ObjectId(grant_id)})
+    mongo.db.grants.delete_one({"_id": ObjectId(grant_id)})
     flash("Grant Details Successfully Deleted")
     return redirect(url_for("get_grants"))
 
@@ -292,3 +289,12 @@ if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
+
+
+for grant in grants:
+
+    counter = 0
+
+    while (counter <= grants):
+        print(counter)
+        counter += 1

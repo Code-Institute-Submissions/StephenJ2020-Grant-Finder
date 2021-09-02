@@ -12,6 +12,7 @@ $(document).ready(function () {
     }
   });
   $('.tooltipped').tooltip();
+  $('.modal').modal();
 
   $('#textarea1').val('New Text');
   M.textareaAutoResize($('#textarea1'));
