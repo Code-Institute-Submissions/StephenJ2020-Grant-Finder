@@ -102,50 +102,52 @@
         <div class="footer-wave">
             <div class="row footer-wave">
                 <div class="col s12 m6">
-                    <!-- Site Name and main H1 header -->
-                    <h1>Grant Finder </h1>
+                    <!-- Social Media & Copyright -->
+                    <p>
+                        
+
+                    </p>
                 </div>
                 <!-- Contact Form-->
-                <h4 class="center-align">Contact Us</h4>
-                <div class="col s12 m6">
+                <div class="col s12 m6 center-align">
+                    <h4 class="center-align">Contact Us</h4>
                     <div class="row">
-                        <form class="col s12">
-                          <div class="row">
-                            <div class="input-field col s12">
-                              <input id="contact_name" name="contact_name" type="text" class="validate" required>
-                              <label for="contact_name">First Name: </label>
+                        <form class="col s12 contact-form">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="contact_name" name="contact_name" type="text" class="validate" required>
+                                    <label for="contact_name">First Name: </label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <input id="contact_username" name="contact_username" type="text" class="validate">
+                                    <label for="contact_username">Already registered with us? What's your Username:
+                                    </label>
+                                </div>
                             </div>
-                            <div class="input-field col s12">
-                              <input id="contact_username" name="contact_username" type="text" class="validate">
-                              <label for="contact_username">Already registered with us? What's your Username: </label>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="contact_email" name="contact_email" type="email" class="validate"
+                                        required>
+                                    <label for="contact_email">Email: </label>
+                                </div>
                             </div>
-                          </div>
-                          <div class="row">
-                            <div class="input-field col s12">
-                              <input id="contact_email" name="contact_email" type="email" class="validate" required>
-                              <label for="contact_email">Email: </label>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <textarea id="contact_query" name="contact_query" class="materialize-textarea validate"
+                                        required></textarea>
+                                    <label for="contact_query">What can we do for you? </label>
+                                </div>
                             </div>
-                          </div>
-                          <div class="row">
-                            <div class="input-field col s12">
-                              <textarea id="contact_query" name="contact_query" class="materialize-textarea" required></textarea>
-                              <label for="contact_query">What can we do for you? </label>
-                            </div>
-                          </div>
+                            <button type="submit" class="btn waves-effect waves-light">
+                            Send &nbsp;<i class="fas fa-sign-in-alt"></i>
+                        </button>
                         </form>
-                      </div>
-                    <!-- <a href="{{ url_for('get_grants') }}"><img src="{{ url_for('static', filename='images/logo-searching-clear-background.png') }}" alt=""></a> -->
+                    </div>
                 </div>
             </div>
-            
         </div>
-    </footer>
+        </footer>
 
-    
-            
-   
-
-    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
