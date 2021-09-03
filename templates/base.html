@@ -105,8 +105,36 @@
                     <!-- Site Name and main H1 header -->
                     <h1>Grant Finder </h1>
                 </div>
-                <!-- Logo navbar image for link to homepage -->
-                
+                <!-- Contact Form-->
+                <h4 class="center-align">Contact Us</h4>
+                <div class="col s12 m6">
+                    <div class="row">
+                        <form class="col s12">
+                          <div class="row">
+                            <div class="input-field col s12">
+                              <input id="contact_name" name="contact_name" type="text" class="validate" required>
+                              <label for="contact_name">First Name: </label>
+                            </div>
+                            <div class="input-field col s12">
+                              <input id="contact_username" name="contact_username" type="text" class="validate">
+                              <label for="contact_username">Already registered with us? What's your Username: </label>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="input-field col s12">
+                              <input id="contact_email" name="contact_email" type="email" class="validate" required>
+                              <label for="contact_email">Email: </label>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="input-field col s12">
+                              <textarea id="contact_query" name="contact_query" class="materialize-textarea" required></textarea>
+                              <label for="contact_query">What can we do for you? </label>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    <!-- <a href="{{ url_for('get_grants') }}"><img src="{{ url_for('static', filename='images/logo-searching-clear-background.png') }}" alt=""></a> -->
                 </div>
             </div>
             
