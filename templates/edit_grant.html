@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-{% if session.user|lower == "username.created_by" %}
+{% if session.user|lower == grant.created_by|lower %}
     <h3 class="center-align">Edit Grant</h3>
     <div class="row">
         <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('edit_grant', grant_id=grant._id) }}">
