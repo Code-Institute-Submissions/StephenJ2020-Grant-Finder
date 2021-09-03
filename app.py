@@ -217,7 +217,7 @@ def edit_category(category_id):
 
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
-    mongo.db.categories.remove({"_id": ObjectId(category_id)})
+    mongo.db.categories.delete_one({"_id": ObjectId(category_id)})
     flash("Category Successfully Deleted")
     return redirect(url_for("get_maintenance"))
 
@@ -253,7 +253,7 @@ def edit_organisation(organisation_id):
 
 @app.route("/delete_organisation/<organisation_id>")
 def delete_organisation(organisation_id):
-    mongo.db.organisations.remove({"_id": ObjectId(organisation_id)})
+    mongo.db.organisations.delete_one({"_id": ObjectId(organisation_id)})
     flash("Organisation Successfully Deleted")
     return redirect(url_for("get_maintenance"))
 
@@ -280,7 +280,7 @@ def edit_user(user_id):
 
 @app.route("/delete_user/<user_id>")
 def delete_user(user_id):
-    mongo.db.users.remove({"_id": ObjectId(user_id)})
+    mongo.db.users.delete_one({"_id": ObjectId(user_id)})
     flash("User Successfully Deleted")
     return redirect(url_for("get_maintenance"))
 
