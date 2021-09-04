@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Grant Finder is a FREE site for anyone searching for Grant Opportunities within North Kildare">
+    <meta name="keywords" content="Community, Festival, Development, Sports, Educational, Grants, Funding">
+    <meta name="author" content="Stephen Johnston">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" 
         integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon.png') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     {% block styles %}
     {% endblock %}
@@ -75,6 +79,7 @@
         </div>
     </header>
     <section>
+        <h2 class="hide">Flash Messages are displayed here</h2>
         <!-- Display Flash Messages Here -->
         {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -144,24 +149,22 @@
                             <div class="col s12">
                                 <h4 class="text-uppercase">Grant Finder</h4>
                             </div>
-                            <ul>
                                 <div class="row">
                                     <div class="col s12">
-                                        <li>
-                                            <a href="https://github.com/StephenJ2020" target="_blank" title="Github" rel="noreferrer">
-                                                <i class="fab fa-github fa-7x" aria-hidden="true"></i><span class="sr-only">Github</span></i>
-                                            </a>
-                                        </li>
-                                    </div>
-                                    <div class="col s12">
-                                        <li>
-                                            <a href="https://www.linkedin.com/in/johnstonstephen/" target="_blank" title="LinkedIn" rel="noreferrer">
-                                                <i class="fab fa-linkedin fa-7x" aria-hidden="true"><span class="sr-only">LinkedIn</span></i>
-                                            </a>
-                                        </li>
+                                        <ul>
+                                            <li>
+                                                <a href="https://github.com/StephenJ2020" target="_blank" title="Github" rel="noreferrer">
+                                                    <i class="fab fa-github fa-7x" aria-hidden="true"></i><span class="sr-only">Github</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.linkedin.com/in/johnstonstephen/" target="_blank" title="LinkedIn" rel="noreferrer">
+                                                    <i class="fab fa-linkedin fa-7x" aria-hidden="true"><span class="sr-only">LinkedIn</span></i>
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
-                            </ul>
                             <div class="col s12">
                                 <h6 class="text-uppercase">Designed by: Stephen Johnston</h6>
                             </div>

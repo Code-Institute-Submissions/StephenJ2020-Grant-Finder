@@ -189,13 +189,13 @@ the desktop view and I'm satisfied it works.
   
 ### Frameworks, Libraries & Programs Used
 
-* [__Bootstrap 4.1.3__](https://getbootstrap.com/docs/4.1/getting-started/introduction/) Bootstrap Grid was used for responsiveness as well as features such as Collapse, Carousel & Forms..
+* [__Materialize 1.0.0__](https://materializecss.com/) Materialize Grid was used for responsiveness as well as features such as Cards, Tabs & Buttons.  
 * [__Balsamiq__](https://balsamiq.com) Balsamiq was used to create wireframes during the design process.
 * [__Google Fonts__](https://fonts.google.com) used for project fonts.
 * [__Gitpod__](https://gitpod.io) Gitpod was the IDE used to create the site and for version control.
 * [__Github__](https://github.com/) GitHub is used to store the projects code after being pushed from Gitpod.
 * [__RandomKeygen__](https://randomkeygen.com/) The Secure Password & Keygen Generator.
-* [__FreeLogoDesign__](https://editor.freelogodesign.org/en/logo/edit/4fbd3a25-d057-49d5-a552-98cb7b40d545) used for logo creation.
+* [__Gauger__](https://gauger.io/fonticon/) Convert Font Awesome Icon into Favicon.
 * [__Fontawesome__](https://fontawesome.com) Font Awesome was used for the Icons throughout the site.
 * [__99designs__](https://99designs.ie/blog/creative-inspiration/color-combinations/) used for colour palette selection.
 * [__TinyPNG__](https://tinypng.com/) used to compress image sizes.
@@ -204,7 +204,6 @@ the desktop view and I'm satisfied it works.
 * Google DevTools used for debugging and testing.
 * [__W3Scool__](https://www.w3schools.com/) used as a general source of information.
 * [__Unsplash__](https://unsplash.com/) used to download images for the website.
-* [__Rawpixel__](https://www.rawpixel.com/free-images?sort=shuffle&premium=free&page=1) used to download images for the website.
 * [__Stackoverflow__](https://stackoverflow.com/) used as one of my main sources of information.
 * [__W3C Markup Validator__](https://validator.w3.org/) Used to test HTML code validation.
 * [__W3C CSS Validatior - Jigsaw__](https://jigsaw.w3.org/css-validator/) Used to test CSS code validation.
