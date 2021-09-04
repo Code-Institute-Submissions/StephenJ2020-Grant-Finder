@@ -85,10 +85,21 @@ header .col{
 /* Grants.html */
 
 .section-container{
-  width: 100vw;
+  width: 100%;
   height: fit-content;
   background-color: #f6f7eb;
   margin-top: 6rem;
+}
+
+/* .my-cards .row .col .s12 {
+  width: 98%;
+  margin-left: 1rem;
+  margin-right: 1rem;
+} */
+
+.card-left{
+  border: 1px ridge rgba(113, 113, 116, 0.25);
+  font-size: 1rem;
 }
 
 /* add_grant.html */

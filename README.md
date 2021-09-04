@@ -190,26 +190,26 @@ the desktop view and I'm satisfied it works.
 ### Frameworks, Libraries & Programs Used
 
 * [__Materialize 1.0.0__](https://materializecss.com/) Materialize Grid was used for responsiveness as well as features such as Cards, Tabs & Buttons.  
-* [__Balsamiq__](https://balsamiq.com) Balsamiq was used to create wireframes during the design process.
-* [__Google Fonts__](https://fonts.google.com) used for project fonts.
-* [__Gitpod__](https://gitpod.io) Gitpod was the IDE used to create the site and for version control.
-* [__Github__](https://github.com/) GitHub is used to store the projects code after being pushed from Gitpod.
-* [__RandomKeygen__](https://randomkeygen.com/) The Secure Password & Keygen Generator.
-* [__Gauger__](https://gauger.io/fonticon/) Convert Font Awesome Icon into Favicon.
-* [__Fontawesome__](https://fontawesome.com) Font Awesome was used for the Icons throughout the site.
-* [__99designs__](https://99designs.ie/blog/creative-inspiration/color-combinations/) used for colour palette selection.
-* [__TinyPNG__](https://tinypng.com/) used to compress image sizes.
-* [__CompressPNG__](https://compresspng.com/) used to compress image sizes.
-* Mozilla DevTools used for debugging and testing.
-* Google DevTools used for debugging and testing.
-* [__W3Scool__](https://www.w3schools.com/) used as a general source of information.
-* [__Unsplash__](https://unsplash.com/) used to download images for the website.
-* [__Stackoverflow__](https://stackoverflow.com/) used as one of my main sources of information.
-* [__W3C Markup Validator__](https://validator.w3.org/) Used to test HTML code validation.
-* [__W3C CSS Validatior - Jigsaw__](https://jigsaw.w3.org/css-validator/) Used to test CSS code validation.
-* [__Mobile-Friendly Test__](https://search.google.com/test/mobile-friendly?id=ZteYI-6sVDRnrLMf_Chjmw) used to check if code is Mobile Friendly.
-* [__Am I Responsive__](http://ami.responsivedesign.is/) used to create Mock-up images to represent the site's responsiveness.
-* [__GitHub Wiki TOC generator__](https://ecotrust-canada.github.io/markdown-toc/) Markdown Table of Content Generator.
+* [__Balsamiq__](https://balsamiq.com) Balsamiq was used to create wireframes during the design process.  
+* [__Google Fonts__](https://fonts.google.com) used for project fonts.  
+* [__Gitpod__](https://gitpod.io) Gitpod was the IDE used to create the site and for version control.  
+* [__Github__](https://github.com/) GitHub is used to store the projects code after being pushed from Gitpod.  
+* [__RandomKeygen__](https://randomkeygen.com/) The Secure Password & Keygen Generator.  
+* [__Gauger__](https://gauger.io/fonticon/) Convert Font Awesome Icon into Favicon.  
+* [__Fontawesome__](https://fontawesome.com) Font Awesome was used for the Icons throughout the site.  
+* [__coolors.co__](https://coolors.co/384364-ffd2b0-f6f7eb-cccccc-333333) used for colour palette selection.  
+* [__TinyPNG__](https://tinypng.com/) used to compress image sizes.  
+* Mozilla DevTools used for debugging and testing.  
+* Google DevTools used for debugging and testing.  
+* [__W3Scool__](https://www.w3schools.com/) used as a general source of information.  
+* [__Unsplash__](https://unsplash.com/) used to download images for the website.  
+* [__Stackoverflow__](https://stackoverflow.com/) used as one of my main sources of information.  
+* [__W3C Markup Validator__](https://validator.w3.org/) Used to test HTML code validation.  
+* [__W3C CSS Validatior - Jigsaw__](https://jigsaw.w3.org/css-validator/) Used to test CSS code validation.  
+* [__jshint Validatior__](https://jshint.com/) Used to test Javascript / JQuery code validation.
+* [__Mobile-Friendly Test__](https://search.google.com/test/mobile-friendly?id=ZteYI-6sVDRnrLMf_Chjmw) used to check if code is Mobile Friendly.  
+* [__Am I Responsive__](http://ami.responsivedesign.is/) used to create Mock-up images to represent the site's responsiveness.  
+* [__GitHub Wiki TOC generator__](https://ecotrust-canada.github.io/markdown-toc/) Markdown Table of Content Generator.  
   
 [Back to Content](#content)  
 

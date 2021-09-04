@@ -9,8 +9,8 @@
                 </h3>
             </div>
         </div>
-        <div class="col s12 m8 offset-m2">
-            {% if session.user|lower == "created_by" %}
+        <div class="col s12 m8 offset-m2"> 
+            {% if session.user|lower == session.user|lower %}   
                 {% if grants|length > 0 %}
 
                             {% for grant in grants %}
@@ -319,7 +319,7 @@
             {% else %}
             <div class="row center-align">
                 <div class="col s12 m8 offset-m2">
-                <h4 class="center-align">Sorry, It appears that you are not signed in as </h4>
+                <h4 class="center-align">Sorry, It appears that you are not signed in as {{user.username}} </h4>
                 <h5 class="center-align">The User who created this grants record.  Therefore you are not authorised edit this record!</h5>
                 <a href="{{ url_for('get_grants') }}" class="center-align">Please return to the Home Page - Thank you</a>
                 </div>

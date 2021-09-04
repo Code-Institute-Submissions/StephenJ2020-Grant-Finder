@@ -1,414 +1,632 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2 class="center-align">Current Grant Opportunities</h2>
-<p>
-    This site is intended for use by those living or working in the North Kildare area.  
-</p>
-<p>
-    If you have ever applied for a Grant before you will know how time consuming the process can be and even more so when you have to search multiple sources to get all the Information
-    you require.  This aim of Grand Finder is to bring all of this information together in one central point. The site is Free to use but you will need to register so that you can view
-    the full details or have access to upload details of any Grants that you are aware of and wish to share with other users.
-</p>
-
     <article class="row">
-        <h2 class="hide">Contains the main body of the code</h2>
-        <div class="col s12 m10 offset-m1 l12 z-depth-3 section-container">
-            <div class="row">
-                <div class="col s12 card-content">
-
-                    <section class="container">
-                        <h2 class="hide">Search</h2>
-                        <div class="row card-panel">
-                            <form action="{{ url_for('search') }}" method="post" class="col s12">
-                                <div class="row valign-wrapper center-align">
-                                    <div class="input-field col s12 m8">
-                                        <i class="fas fa-search prefix navy"></i>
-                                        <input type="text" name="query" id="query" minlength="3" class="validate" required>
-                                        <label for="query">Search: </label>
-                                    </div>
-                                    <div class="col s12 m4">
-                                        <button type="submit" class="waves-effect waves-light btn-small">
-                                            Search <i class="fas fa-search right"></i>
-                                        </button>
-                                        <a href="{{ url_for('get_grants') }}" class="waves-effect waves-light btn-small red lighten-1">Reset</a>
+        <h2 class="center-align">Grant Finder</h2>
+        <p class="center-align">
+            This site is intended for use by those living or working in the North Kildare area.
+        </p>
+        <p>
+            If you have ever applied for a Grant before you will know how time consuming the process can be and even
+            more so when you have to search multiple sources to get all the Information
+            you require. This aim of Grand Finder is to bring all of this information together in one central point. The
+            site is Free to use but you will need to register so that you can view
+            the full details or have access to upload details of any Grants that you are aware of and wish to share with
+            other users.
+        </p>
+        <section>
+            <div class="row section-container">
+                <div class="col s12 m10 offset-m1">
+                    <h3 class="center-align">Search for a specific grant</h3>
+                </div>
+                <form action="{{ url_for('search') }}" method="post">
+                    <div class="row">
+                        <div class="input-field col s12 container">
+                            <i class="fas fa-search prefix navy"></i>
+                            <input type="text" name="query" id="query" minlength="3" class="validate" required>
+                            <label for="query">Search: </label>
+                        </div>
+                    </div>
+                    <!-- submit -->
+                    <div class="row center-align">
+                        <button type="submit" class="waves-effect waves-light btn-small">
+                            Search <i class="fas fa-search right"></i>
+                        </button>
+                        <a href="{{ url_for('get_grants') }}" class="waves-effect waves-light btn-small red lighten-1">Reset</a>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section>
+            <div class="row section-container">
+                <div class="col s12 m10 offset-m1">
+                    <h3 class="center-align">Current Grant Opportunities</h3>
+                </div>
+                <div class="row container">
+                    <div class="col s12">
+                        {% for grant in grants %}
+                            <div class="card-panel teal hoverable">
+                                <div class="teal lighten-4 line-height">
+                                    <div id="tab1{{ grant._id }}">
+                                        <div class="row">
+                                            <div class="col s12">
+                                                <div class="col s12 m6 ">
+                                                    <p><u>Grant Title: </u><br><em> {{ grant.grant_title }} </em></p>
+                                                </div>
+                                                <div class="col s12 m6 ">
+                                                    <p><u>Category: </u><br><em> {{ grant.category_name }} </em></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col s12">
+                                                <div class="col s12 m6">
+                                                    <p><u>Issuing Body: </u><br><em> {{ grant.issuing_body }} </em></p>
+                                                </div>
+                                                <div class="col s12 m6">
+                                                    <p><u>Recurring: </u><br><em>{{ grant.is_recurring }}</em></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col s12">
+                                                <div class="col s12 m6">
+                                                    <p><u>Opening Date: </u><br><em>{{ grant.opening_date }}</em></p>
+                                                </div>
+                                                <div class="col s12 m6">
+                                                    <p><u>Closing Date: </u><br><em> {{ grant.closing_date }}</em></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col s12">
+                                                <div class="col s12 center-align">
+                                                    <p>Added by: {{ grant.created_by }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
-                    </section>
-
-                    <section class="container">
-                        <h2 class="hide">List of Grants</h2>
-                        <div class="row">
-                            <div class="col s12">
-                                {% if grants|length > 0 %}
-
-                                    {% for grant in grants %}
-                                        {% if loop.index % 2 != 0 %}
-                                            <!-- Card 1 -->
-                                            <div class=" hoverable">
-                                                <div class="card horizontal">
-                                                    <div class="card-image hide-on-small-only">
-                                                        <img class="responsive-img"
-                                                            src="https://images.unsplash.com/photo-1593510987760-2d895bc8109d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80/250/250" alt="A typewriter with the words Funding Round">
-                                                    </div>
-                                                    <div class="card-stacked tabs-fixed-width">
-                                                        <div class="card-content">
-                                                            <p class="center-align"><strong>{{ grant.grant_title }} </strong></p>
-                                                            <div class="card">
-                                                                <div class="card-tabs">
-                                                                    <ul class="tabs">
-                                                                        {% if session.user %}
-                                                                        <li class="tab s12 m4 active"><a
-                                                                                href="#tab1{{ grant._id }}">General Info</a></li>
-                                                                        <li class="tab s12 m4"><a href="#tab2{{ grant._id }}">Grant
-                                                                                Description</a></li>
-                                                                        <li class="tab s12 m4"><a
-                                                                                href="#tab3{{ grant._id }}">Support
-                                                                                Documentation</a></li>
-                                                                        {% else %}
-                                                                        <li class="tab s12 m4 active"><a
-                                                                                href="#tab1{{ grant._id }}">General Info</a></li>
-                                                                        {% endif %}
-                                                                    </ul>
-                                                                </div>
-                                                                <div class="card-content grey lighten-4 line-height">
-                                                                    <div id="tab1{{ grant._id }}">
-                                                                        <div class="row">
-                                                                            <div class="col s12">
-                                                                                <div class="col s12 m6 ">
-                                                                                    <p><strong>Grant Title: </strong>
-                                                                                        <span class="navy"><em>
-                                                                                                {{ grant.grant_title }} </em></span>
-                                                                                    </p>
-                                                                                </div>
-                                                                                <div class="col s12 m6 ">
-                                                                                    <p><strong>Category: </strong>
-                                                                                        <span class="navy"><em>
-                                                                                                {{ grant.category_name }}
-                                                                                            </em></span>
-                                                                                    </p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col s12">
-                                                                                <div class="col s12 m6 ">
-                                                                                    <p><strong>Issuing Body: </strong>
-                                                                                        <span class="navy"><em>
-                                                                                                {{ grant.issuing_body }}
-                                                                                            </em></span>
-                                                                                    </p>
-                                                                                </div>
-                                                                                <div class="col s12 m6 ">
-                                                                                    <p><strong>Recurring: </strong>
-                                                                                        <span class="navy"><em>
-                                                                                                {{ grant.is_recurring }}
-                                                                                            </em></span>
-                                                                                    </p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col s12">
-                                                                                <div class="col s12 m6 ">
-                                                                                    <p><strong>Opening Date: </strong>
-                                                                                        <span class="navy"><em>
-                                                                                                {{ grant.opening_date }}
-                                                                                            </em></span>
-                                                                                    </p>
-                                                                                </div>
-                                                                                <div class="col s12 m6 ">
-                                                                                    <p><strong>Closing Date: </strong>
-                                                                                        <span class="navy"><em>
-                                                                                                {{ grant.closing_date }}
-                                                                                            </em></span>
-                                                                                    </p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    {% if session.user %}
-                                                                    <div id="tab2{{ grant._id }}">
-                                                                        <div class="row">
-                                                                            <div class="col s12">
-                                                                                <div class="col s12">
-                                                                                    <p><strong>Grant Description: </strong>
-                                                                                        <p>
-                                                                                            <span class="navy"><em>
-                                                                                                    {{ grant.grant_description }}
-                                                                                                </em></span>
-                                                                                        </p>
-                                                                                        <br>
-                                                                                        <p>
-                                                                                            <strong>Application Link:</strong>
-                                                                                            <span class="navy"><em>
-                                                                                                    <a href="{{ grant.application_link }}"
-                                                                                                        target="_blank"
-                                                                                                        rel="noreferrer"
-                                                                                                        alt="Link to Grant Application Form">Open
-                                                                                                        Link</a>
-                                                                                                </em></span>
-                                                                                        </p>
-                                                                                    </p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div id="tab3{{ grant._id }}">
-                                                                        <div class="row">
-                                                                            <div class="col s12">
-                                                                                <div class="col s12 m6 ">
-                                                                                    <p><strong>Website: </strong>
-                                                                                        <span class="navy"><em>
-                                                                                                <a href="{{ grant.website }}"
-                                                                                                    target="_blank" rel="noreferrer"
-                                                                                                    alt="Link to the website of the Issuing Body">Click
-                                                                                                    Here</a>
-                                                                                            </em></span>
-                                                                                    </p>
-                                                                                </div>
-                                                                                <div class="col s12 m6 ">
-                                                                                    <p><strong>Additional Information: </strong>
-                                                                                        <span class="navy"><em>
-                                                                                                <a href="{{ grant.support_docs }}"
-                                                                                                    target="_blank" rel="noreferrer"
-                                                                                                    alt="Link to additional Support Documentation">See
-                                                                                                    More</a>
-                                                                                            </em></span>
-                                                                                    </p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    {% endif %}
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col s12 center-align">
-                                                                {% if session.user|lower == grant.created_by|lower %}
-                                                                <a href="{{ url_for('edit_grant', grant_id=grant._id) }}"
-                                                                    class="waves-effect waves-light btn-small">Edit</a>
-                                                                <!-- Modal Trigger -->
-                                                                <a class="waves-effect waves-light btn-small red lighten-1 modal-trigger"
-                                                                    href="#confirm-delete{{ grant._id }}">Delete</a>
-
-                                                                <!-- Modal Structure -->
-                                                                <div id="confirm-delete{{ grant._id }}" class="modal">
-                                                                    <div class="modal-content">
-                                                                        <h4>Are you Sure you want to permanently Delete this
-                                                                            Grant?</h4>
-                                                                        <p>
-                                                                            <a href="{{ url_for('delete_grant', grant_id=grant._id) }}"
-                                                                                class="col s8 waves-effect waves-light btn-large modal-close">
-                                                                                Confirm Delete &nbsp;<i
-                                                                                    class="fas fa-check-circle"></i>
-                                                                            </a>
-                                                                            <a href="{{ url_for('get_grants') }}"
-                                                                                class="col s4 waves-effect waves-light btn-large red lighten-1 modal-close">
-                                                                                Cancel Delete &nbsp;<i
-                                                                                    class="fas fa-window-close"></i>
-                                                                            </a>
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                                {% endif %}
-                                                                Added by: {{ grant.created_by }}
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            {% else %}
-                                            <!-- Card 2 -->
-                                            <div class=" hoverable">
-                                                <div class="card horizontal">
-                                                    <div class="card-stacked tabs-fixed-width">
-                                                        <div class="card-content small">
-                                                            <p class="center-align"><strong>{{ grant.grant_title }}</strong></p>
-                                                            <div class="card">
-                                                                <div class="card-tabs">
-                                                                    <ul class="tabs">
-                                                                        {% if session.user %}
-                                                                        <li class="tab s12 m4 active"><a
-                                                                                href="#taba{{ grant._id }}">General Info</a></li>
-                                                                        <li class="tab s12 m4"><a href="#tabb{{ grant._id }}">Grant
-                                                                                Description</a></li>
-                                                                        <li class="tab s12 m4"><a
-                                                                                href="#tabc{{ grant._id }}">Support
-                                                                                Documentation</a></li>
-                                                                        {% else %}
-                                                                        <li class="tab s12 m4 active"><a
-                                                                                href="#taba{{ grant._id }}">General Info</a></li>
-                                                                        {% endif %}
-                                                                    </ul>
-                                                                </div>
-                                                                <div class="card-content grey lighten-4 line-height">
-                                                                    <div id="taba{{ grant._id }}">
-                                                                        <div class="row">
-                                                                            <div class="col s12">
-                                                                                <div class="col s12 m6 ">
-                                                                                    <p><strong>Grant Title: </strong>
-                                                                                        <span class="navy"><em>
-                                                                                                {{ grant.grant_title }} </em></span>
-                                                                                    </p>
-                                                                                </div>
-                                                                                <div class="col s12 m6 ">
-                                                                                    <p><strong>Category: </strong>
-                                                                                        <span class="navy"><em>
-                                                                                                {{ grant.category_name }}
-                                                                                            </em></span>
-                                                                                    </p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col s12">
-                                                                                <div class="col s12 m6 ">
-                                                                                    <p><strong>Issuing Body: </strong>
-                                                                                        <span class="navy"><em>
-                                                                                                {{ grant.issuing_body }}
-                                                                                            </em></span>
-                                                                                    </p>
-                                                                                </div>
-                                                                                <div class="col s12 m6 ">
-                                                                                    <p><strong>Recurring: </strong>
-                                                                                        <span class="navy"><em>
-                                                                                                {{ grant.is_recurring }}
-                                                                                            </em></span>
-                                                                                    </p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col s12">
-                                                                                <div class="col s12 m6 ">
-                                                                                    <p><strong>Opening Date: </strong>
-                                                                                        <span class="navy"><em>
-                                                                                                {{ grant.opening_date }}
-                                                                                            </em></span>
-                                                                                    </p>
-                                                                                </div>
-                                                                                <div class="col s12 m6 ">
-                                                                                    <p><strong>Closing Date: </strong>
-                                                                                        <span class="navy"><em>
-                                                                                                {{ grant.closing_date }}
-                                                                                            </em></span>
-                                                                                    </p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    {% if session.user %}
-                                                                    <div id="tabb{{ grant._id }}">
-                                                                        <div class="row">
-                                                                            <div class="col s12">
-                                                                                <div class="col s12">
-                                                                                    <p><strong>Grant Description: </strong>
-                                                                                        <p>
-                                                                                            <span class="navy"><em>
-                                                                                                    {{ grant.grant_description }}
-                                                                                                </em></span>
-                                                                                        </p>
-                                                                                        <br>
-                                                                                        <p>
-                                                                                            <strong>Application Link:</strong>
-                                                                                            <span class="navy"><em>
-                                                                                                    <a href="{{ grant.application_link }}"
-                                                                                                        target="_blank"
-                                                                                                        rel="noreferrer"
-                                                                                                        alt="Link to Grant Application Form">Open
-                                                                                                        Link</a>
-                                                                                                </em></span>
-                                                                                        </p>
-                                                                                    </p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div id="tabc{{ grant._id }}">
-                                                                        <div class="row">
-                                                                            <div class="col s12">
-                                                                                <div class="col s12 m6 ">
-                                                                                    <p><strong>Website: </strong>
-                                                                                        <span class="navy"><em>
-                                                                                                <a href="{{ grant.website }}"
-                                                                                                    target="_blank" rel="noreferrer"
-                                                                                                    alt="Link to the website of the Issuing Body">Click
-                                                                                                    Here</a>
-                                                                                            </em></span>
-                                                                                    </p>
-                                                                                </div>
-                                                                                <div class="col s12 m6 ">
-                                                                                    <p><strong>Additional Information: </strong>
-                                                                                        <span class="navy"><em>
-                                                                                                <a href="{{ grant.support_docs }}"
-                                                                                                    target="_blank" rel="noreferrer"
-                                                                                                    alt="Link to additional Support Documentation">See
-                                                                                                    More</a>
-                                                                                            </em></span>
-                                                                                    </p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    {% endif %}
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col s12 center-align">
-                                                                {% if session.user|lower == grant.created_by|lower %}
-                                                                <a href="{{ url_for('edit_grant', grant_id=grant._id) }}"
-                                                                    class="waves-effect waves-light btn-small">Edit</a>
-                                                                <!-- Modal Trigger -->
-                                                                <a class="waves-effect waves-light btn-small red lighten-1 modal-trigger"
-                                                                    href="#confirm-delete{{ grant._id }}">Delete</a>
-
-                                                                <!-- Modal Structure -->
-                                                                <div id="confirm-delete{{ grant._id }}" class="modal">
-                                                                    <div class="modal-content">
-                                                                        <h4>Are you Sure you want to permanently Delete this
-                                                                            Grant?</h4>
-                                                                        <p>
-                                                                            <a href="{{ url_for('delete_grant', grant_id=grant._id) }}"
-                                                                                class="col s8 waves-effect waves-light btn-large modal-close">
-                                                                                Confirm Delete &nbsp;<i
-                                                                                    class="fas fa-check-circle"></i>
-                                                                            </a>
-                                                                            <a href="{{ url_for('get_grants') }}"
-                                                                                class="col s4 waves-effect waves-light btn-large red lighten-1 modal-close">
-                                                                                Cancel Delete &nbsp;<i
-                                                                                    class="fas fa-window-close"></i>
-                                                                            </a>
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                                {% endif %}
-                                                                Added by: {{ grant.created_by }}
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-image hide-on-small-only">
-                                                        <img class="responsive-img"
-                                                            src="https://world.edu/wp-content/uploads/2020/02/Grant-Applications.jpg" alt="A desk with files for Grant Applications">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        {% endif %}
-                                    {% endfor %}
-                                {% else %}
-                                <h3 class="center-align red-text">No Search Results Found!</h3>
-                                {% endif %}
                             </div>
-                        </div>
-                    </section>
-                
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
+              
     </article>
 
 {% endblock %}
+
+
+
+
+
+
+
+
+
+<div id="tab2{{ grant._id }}">
+    <div class="row">
+        <div class="col s12">
+            <div class="col s12">
+                <p><strong>Grant Description: </strong>
+                    <p>
+                        <span class="navy"><em>
+                                {{ grant.grant_description }}
+                            </em></span>
+                    </p>
+                    <br>
+                    <p>
+                        <strong>Application Link:</strong>
+                        <span class="navy"><em>
+                                <a href="{{ grant.application_link }}"
+                                    target="_blank" rel="noreferrer"
+                                    alt="Link to Grant Application Form">Open
+                                    Link</a>
+                            </em></span>
+                    </p>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="tab3{{ grant._id }}">
+    <div class="row">
+        <div class="col s12">
+            <div class="col s12 m6 ">
+                <p><strong>Website: </strong>
+                    <span class="navy"><em>
+                            <a href="{{ grant.website }}"
+                                target="_blank" rel="noreferrer"
+                                alt="Link to the website of the Issuing Body">Click
+                                Here</a>
+                        </em></span>
+                </p>
+            </div>
+            <div class="col s12 m6 ">
+                <p><strong>Additional Information: </strong>
+                    <span class="navy"><em>
+                            <a href="{{ grant.support_docs }}"
+                                target="_blank" rel="noreferrer"
+                                alt="Link to additional Support Documentation">See
+                                More</a>
+                        </em></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col s12 center-align">
+
+<a href="{{ url_for('edit_grant', grant_id=grant._id) }}"
+class="waves-effect waves-light btn-small">Edit</a>
+<!-- Modal Trigger -->
+<a class="waves-effect waves-light btn-small red lighten-1 modal-trigger"
+href="#confirm-delete{{ grant._id }}">Delete</a>
+
+<!-- Modal Structure -->
+<div id="confirm-delete{{ grant._id }}" class="modal">
+<div class="modal-content">
+    <h4>Are you Sure you want to permanently Delete this
+        Grant?</h4>
+    <p>
+        <a href="{{ url_for('delete_grant', grant_id=grant._id) }}"
+            class="col s8 waves-effect waves-light btn-large modal-close">
+            Confirm Delete &nbsp;<i class="fas fa-check-circle"></i>
+        </a>
+        <a href="{{ url_for('get_grants') }}"
+            class="col s4 waves-effect waves-light btn-large red lighten-1 modal-close">
+            Cancel Delete &nbsp;<i class="fas fa-window-close"></i>
+        </a>
+    </p>
+</div>
+</div>
+
+
+
+
+
+{% if grants|length > 0 %}
+
+{% for grant in grants %}
+    <div class="row">
+        {% if loop.index % 2 != 0 %}
+            <div class="col s12 card-left center-align">
+                <div class="col s12 m4">
+                    <img class="responsive-img"
+                        src="https://images.unsplash.com/photo-1593510987760-2d895bc8109d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80"
+                        alt="A typewriter with the words Funding Round">
+                </div>
+                <div class="card col s12 m8">
+                    <div class="row">
+                        <div class="col s12">Grant Title:  {{ grant.grant_title }}</div>
+                        <div class="col s6">Category: {{ grant.category_name }} </div>
+                        <div class="col s6">Category: {{ grant.category_name }} </div>
+                      </div>
+                      <div class="row">
+                        <div class="col s12">Grant Title:  {{ grant.grant_title }}</div>
+                        <div class="col s6">Category: {{ grant.category_name }} </div>
+                        <div class="col s6">Category: {{ grant.category_name }} </div>
+                      </div>
+                </div>
+            </div>
+        {% else %}
+            <!-- Card 2 -->
+                                                        
+            <div class="row">
+                <div class="col s12">
+                    <div class="card blue-grey">
+                        <div class="card-content white-text">
+                            <span class="card-title">Grant Title: {{ grant.grant_title }}   </span>
+                            <div class="row">
+                                <div class="col s6">Category: {{ grant.category_name }}</p><p>Category: {{ grant.category_name }}</div>
+                                
+                              </div>
+                            
+                            <p></p>
+                            
+                        </div>
+                        <div class="card-action">
+                            <a href="#">This is a link</a>
+                            <a href="#">This is a link</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        {% endif %}
+    </div>
+    
+{% endfor %}
+{% else %}
+<h3 class="center-align red-text">No Search Results Found!</h3>
+{% endif %}
+
+
+
+<article class="row">
+    <h2 class="hide">Contains the main body of the code</h2>
+    <div class="col s12 m10 offset-m1 l12 z-depth-3 section-container">
+        <div class="row">
+            <div class="col s12 card-content">
+
+               
+
+                <section class="container">
+                    <h2 class="hide">List of Grants</h2>
+                    <div class="row">
+                        <div class="col s12">
+                            {% if grants|length > 0 %}
+
+                                {% for grant in grants %}
+                                    {% if loop.index % 2 != 0 %}
+                                        <!-- Card 1 -->
+                                        <div class=" hoverable">
+                                            <div class="card horizontal">
+                                                <div class="card-image hide-on-small-only">
+                                                    <img class="responsive-img"
+                                                        src="https://images.unsplash.com/photo-1593510987760-2d895bc8109d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80/250/250" alt="A typewriter with the words Funding Round">
+                                                </div>
+                                                <div class="card-stacked tabs-fixed-width">
+                                                    <div class="card-content">
+                                                        <p class="center-align"><strong>{{ grant.grant_title }} </strong></p>
+                                                        <div class="card">
+                                                            <div class="card-tabs">
+                                                                <ul class="tabs">
+                                                                    {% if session.user %}
+                                                                    <li class="tab s12 m4 active"><a
+                                                                            href="#tab1{{ grant._id }}">General Info</a></li>
+                                                                    <li class="tab s12 m4"><a href="#tab2{{ grant._id }}">Grant
+                                                                            Description</a></li>
+                                                                    <li class="tab s12 m4"><a
+                                                                            href="#tab3{{ grant._id }}">Support
+                                                                            Documentation</a></li>
+                                                                    {% else %}
+                                                                    <li class="tab s12 m4 active"><a
+                                                                            href="#tab1{{ grant._id }}">General Info</a></li>
+                                                                    {% endif %}
+                                                                </ul>
+                                                            </div>
+                                                            <div class="card-content grey lighten-4 line-height">
+                                                                <div id="tab1{{ grant._id }}">
+                                                                    <div class="row">
+                                                                        <div class="col s12">
+                                                                            <div class="col s12 m6 ">
+                                                                                <p><strong>Grant Title: </strong>
+                                                                                    <span class="navy"><em>
+                                                                                            {{ grant.grant_title }} </em></span>
+                                                                                </p>
+                                                                            </div>
+                                                                            <div class="col s12 m6 ">
+                                                                                <p><strong>Category: </strong>
+                                                                                    <span class="navy"><em>
+                                                                                            {{ grant.category_name }}
+                                                                                        </em></span>
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col s12">
+                                                                            <div class="col s12 m6 ">
+                                                                                <p><strong>Issuing Body: </strong>
+                                                                                    <span class="navy"><em>
+                                                                                            {{ grant.issuing_body }}
+                                                                                        </em></span>
+                                                                                </p>
+                                                                            </div>
+                                                                            <div class="col s12 m6 ">
+                                                                                <p><strong>Recurring: </strong>
+                                                                                    <span class="navy"><em>
+                                                                                            {{ grant.is_recurring }}
+                                                                                        </em></span>
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col s12">
+                                                                            <div class="col s12 m6 ">
+                                                                                <p><strong>Opening Date: </strong>
+                                                                                    <span class="navy"><em>
+                                                                                            {{ grant.opening_date }}
+                                                                                        </em></span>
+                                                                                </p>
+                                                                            </div>
+                                                                            <div class="col s12 m6 ">
+                                                                                <p><strong>Closing Date: </strong>
+                                                                                    <span class="navy"><em>
+                                                                                            {{ grant.closing_date }}
+                                                                                        </em></span>
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                {% if session.user %}
+                                                                <div id="tab2{{ grant._id }}">
+                                                                    <div class="row">
+                                                                        <div class="col s12">
+                                                                            <div class="col s12">
+                                                                                <p><strong>Grant Description: </strong>
+                                                                                    <p>
+                                                                                        <span class="navy"><em>
+                                                                                                {{ grant.grant_description }}
+                                                                                            </em></span>
+                                                                                    </p>
+                                                                                    <br>
+                                                                                    <p>
+                                                                                        <strong>Application Link:</strong>
+                                                                                        <span class="navy"><em>
+                                                                                                <a href="{{ grant.application_link }}"
+                                                                                                    target="_blank"
+                                                                                                    rel="noreferrer"
+                                                                                                    alt="Link to Grant Application Form">Open
+                                                                                                    Link</a>
+                                                                                            </em></span>
+                                                                                    </p>
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="tab3{{ grant._id }}">
+                                                                    <div class="row">
+                                                                        <div class="col s12">
+                                                                            <div class="col s12 m6 ">
+                                                                                <p><strong>Website: </strong>
+                                                                                    <span class="navy"><em>
+                                                                                            <a href="{{ grant.website }}"
+                                                                                                target="_blank" rel="noreferrer"
+                                                                                                alt="Link to the website of the Issuing Body">Click
+                                                                                                Here</a>
+                                                                                        </em></span>
+                                                                                </p>
+                                                                            </div>
+                                                                            <div class="col s12 m6 ">
+                                                                                <p><strong>Additional Information: </strong>
+                                                                                    <span class="navy"><em>
+                                                                                            <a href="{{ grant.support_docs }}"
+                                                                                                target="_blank" rel="noreferrer"
+                                                                                                alt="Link to additional Support Documentation">See
+                                                                                                More</a>
+                                                                                        </em></span>
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                {% endif %}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col s12 center-align">
+                                                            {% if session.user|lower == grant.created_by|lower %}
+                                                            <a href="{{ url_for('edit_grant', grant_id=grant._id) }}"
+                                                                class="waves-effect waves-light btn-small">Edit</a>
+                                                            <!-- Modal Trigger -->
+                                                            <a class="waves-effect waves-light btn-small red lighten-1 modal-trigger"
+                                                                href="#confirm-delete{{ grant._id }}">Delete</a>
+
+                                                            <!-- Modal Structure -->
+                                                            <div id="confirm-delete{{ grant._id }}" class="modal">
+                                                                <div class="modal-content">
+                                                                    <h4>Are you Sure you want to permanently Delete this
+                                                                        Grant?</h4>
+                                                                    <p>
+                                                                        <a href="{{ url_for('delete_grant', grant_id=grant._id) }}"
+                                                                            class="col s8 waves-effect waves-light btn-large modal-close">
+                                                                            Confirm Delete &nbsp;<i
+                                                                                class="fas fa-check-circle"></i>
+                                                                        </a>
+                                                                        <a href="{{ url_for('get_grants') }}"
+                                                                            class="col s4 waves-effect waves-light btn-large red lighten-1 modal-close">
+                                                                            Cancel Delete &nbsp;<i
+                                                                                class="fas fa-window-close"></i>
+                                                                        </a>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            {% endif %}
+                                                            Added by: {{ grant.created_by }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% else %}
+                                        <!-- Card 2 -->
+                                        <div class=" hoverable">
+                                            <div class="card horizontal">
+                                                <div class="card-stacked tabs-fixed-width">
+                                                    <div class="card-content small">
+                                                        <p class="center-align"><strong>{{ grant.grant_title }}</strong></p>
+                                                        <div class="card">
+                                                            <div class="card-tabs">
+                                                                <ul class="tabs">
+                                                                    {% if session.user %}
+                                                                    <li class="tab s12 m4 active"><a
+                                                                            href="#taba{{ grant._id }}">General Info</a></li>
+                                                                    <li class="tab s12 m4"><a href="#tabb{{ grant._id }}">Grant
+                                                                            Description</a></li>
+                                                                    <li class="tab s12 m4"><a
+                                                                            href="#tabc{{ grant._id }}">Support
+                                                                            Documentation</a></li>
+                                                                    {% else %}
+                                                                    <li class="tab s12 m4 active"><a
+                                                                            href="#taba{{ grant._id }}">General Info</a></li>
+                                                                    {% endif %}
+                                                                </ul>
+                                                            </div>
+                                                            <div class="card-content grey lighten-4 line-height">
+                                                                <div id="taba{{ grant._id }}">
+                                                                    <div class="row">
+                                                                        <div class="col s12">
+                                                                            <div class="col s12 m6 ">
+                                                                                <p><strong>Grant Title: </strong>
+                                                                                    <span class="navy"><em>
+                                                                                            {{ grant.grant_title }} </em></span>
+                                                                                </p>
+                                                                            </div>
+                                                                            <div class="col s12 m6 ">
+                                                                                <p><strong>Category: </strong>
+                                                                                    <span class="navy"><em>
+                                                                                            {{ grant.category_name }}
+                                                                                        </em></span>
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col s12">
+                                                                            <div class="col s12 m6 ">
+                                                                                <p><strong>Issuing Body: </strong>
+                                                                                    <span class="navy"><em>
+                                                                                            {{ grant.issuing_body }}
+                                                                                        </em></span>
+                                                                                </p>
+                                                                            </div>
+                                                                            <div class="col s12 m6 ">
+                                                                                <p><strong>Recurring: </strong>
+                                                                                    <span class="navy"><em>
+                                                                                            {{ grant.is_recurring }}
+                                                                                        </em></span>
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col s12">
+                                                                            <div class="col s12 m6 ">
+                                                                                <p><strong>Opening Date: </strong>
+                                                                                    <span class="navy"><em>
+                                                                                            {{ grant.opening_date }}
+                                                                                        </em></span>
+                                                                                </p>
+                                                                            </div>
+                                                                            <div class="col s12 m6 ">
+                                                                                <p><strong>Closing Date: </strong>
+                                                                                    <span class="navy"><em>
+                                                                                            {{ grant.closing_date }}
+                                                                                        </em></span>
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                {% if session.user %}
+                                                                <div id="tabb{{ grant._id }}">
+                                                                    <div class="row">
+                                                                        <div class="col s12">
+                                                                            <div class="col s12">
+                                                                                <p><strong>Grant Description: </strong>
+                                                                                    <p>
+                                                                                        <span class="navy"><em>
+                                                                                                {{ grant.grant_description }}
+                                                                                            </em></span>
+                                                                                    </p>
+                                                                                    <br>
+                                                                                    <p>
+                                                                                        <strong>Application Link:</strong>
+                                                                                        <span class="navy"><em>
+                                                                                                <a href="{{ grant.application_link }}"
+                                                                                                    target="_blank"
+                                                                                                    rel="noreferrer"
+                                                                                                    alt="Link to Grant Application Form">Open
+                                                                                                    Link</a>
+                                                                                            </em></span>
+                                                                                    </p>
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="tabc{{ grant._id }}">
+                                                                    <div class="row">
+                                                                        <div class="col s12">
+                                                                            <div class="col s12 m6 ">
+                                                                                <p><strong>Website: </strong>
+                                                                                    <span class="navy"><em>
+                                                                                            <a href="{{ grant.website }}"
+                                                                                                target="_blank" rel="noreferrer"
+                                                                                                alt="Link to the website of the Issuing Body">Click
+                                                                                                Here</a>
+                                                                                        </em></span>
+                                                                                </p>
+                                                                            </div>
+                                                                            <div class="col s12 m6 ">
+                                                                                <p><strong>Additional Information: </strong>
+                                                                                    <span class="navy"><em>
+                                                                                            <a href="{{ grant.support_docs }}"
+                                                                                                target="_blank" rel="noreferrer"
+                                                                                                alt="Link to additional Support Documentation">See
+                                                                                                More</a>
+                                                                                        </em></span>
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                {% endif %}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col s12 center-align">
+                                                            {% if session.user|lower == grant.created_by|lower %}
+                                                            <a href="{{ url_for('edit_grant', grant_id=grant._id) }}"
+                                                                class="waves-effect waves-light btn-small">Edit</a>
+                                                            <!-- Modal Trigger -->
+                                                            <a class="waves-effect waves-light btn-small red lighten-1 modal-trigger"
+                                                                href="#confirm-delete{{ grant._id }}">Delete</a>
+
+                                                            <!-- Modal Structure -->
+                                                            <div id="confirm-delete{{ grant._id }}" class="modal">
+                                                                <div class="modal-content">
+                                                                    <h4>Are you Sure you want to permanently Delete this
+                                                                        Grant?</h4>
+                                                                    <p>
+                                                                        <a href="{{ url_for('delete_grant', grant_id=grant._id) }}"
+                                                                            class="col s8 waves-effect waves-light btn-large modal-close">
+                                                                            Confirm Delete &nbsp;<i
+                                                                                class="fas fa-check-circle"></i>
+                                                                        </a>
+                                                                        <a href="{{ url_for('get_grants') }}"
+                                                                            class="col s4 waves-effect waves-light btn-large red lighten-1 modal-close">
+                                                                            Cancel Delete &nbsp;<i
+                                                                                class="fas fa-window-close"></i>
+                                                                        </a>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            {% endif %}
+                                                            Added by: {{ grant.created_by }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-image hide-on-small-only">
+                                                    <img class="responsive-img"
+                                                        src="https://world.edu/wp-content/uploads/2020/02/Grant-Applications.jpg" alt="A desk with files for Grant Applications">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            {% else %}
+                            <h3 class="center-align red-text">No Search Results Found!</h3>
+                            {% endif %}
+                        </div>
+                    </div>
+                </section>
+            
+            </div>
+        </div>
+    </div>
+</article>
