@@ -145,6 +145,11 @@ def add_grant():
     return render_template("add_grant.html", categories=categories)
 
 
+@app.route("/more_details/<grant_id>", methods=["GET", "POST"])
+def more_details(grant_id):
+    return render_template("more_details.html")
+
+
 @app.route("/edit_grant/<grant_id>", methods=["GET", "POST"])
 def edit_grant(grant_id):
     if request.method == "POST":
