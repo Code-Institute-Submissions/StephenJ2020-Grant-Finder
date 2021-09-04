@@ -1,7 +1,7 @@
  # ***[Grant Finder](http://grant-finder-pro.herokuapp.com/get_grants)***  
-![Mock-Up ](/static/images/readme/Final Mockup.png)
-
-[![Project logo](static/images/readme/Final Mockup.png)](http://grant-finder-pro.herokuapp.com/get_grants) 
+![Mock-Up](static/images/readme/mockup.png)  
+  
+[![Mock-Up](static/images/readme/mockup.png)](http://grant-finder-pro.herokuapp.com/get_grants) 
 
    
 ---   
