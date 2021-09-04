@@ -1,8 +1,8 @@
- # ***[Grant Finder]()***  
-![Project logo]()
+ # ***[Grant Finder](http://grant-finder-pro.herokuapp.com/get_grants)***  
+![Mock-Up ](/static/images/readme/Final Mockup.png)
 
-[![Project logo](./assets/images/logo.png)]() 
-   
+[![Project logo](static/images/readme/Final Mockup.png)](http://grant-finder-pro.herokuapp.com/get_grants) 
+
    
 ---   
   
@@ -38,44 +38,6 @@ I have decided to create a website called Grant Finder which will act as a porta
 
   
 ---    
-      
-# Content
- 
-- [Project Description](#project-description)
-- [Contents](#contents)
-- [UX Design](#ux-design)
-  * [Strategy](#strategy)
-    + [User Stories:](#user-stories-)
-      - [First Time Visitor Goals](#first-time-visitor-goals)
-      - [Returning & Frequent Visitor Goals](#returning-visitor-goals)
-    + [User personas](#user-personas)
-    + [The Business Scenario](#the-business-scenario)
-- [Scope](#scope)
-  * [Functional Specification](#functional-specification)
-    + [Current feature requirements:](#current-feature-requirements-)
-    + [Future feature requirements:](#future-feature-requirements-)
-    + [Content Requirements:](#content-requirements-)
-- [Structure](#structure)
-  * [Information Design  (IA)](#information-design---ia-)
-  * [5. wireframes](#5-wireframes)
-  * [6. Visual Design](#6-visual-design)
-- [Technologies Used](#technologies-used)
-  * [Languages Used](#languages-used)
-    + [Frameworks, Libraries & Programs Used](#frameworks--libraries---programs-used)
-- [TESTING](#testing)
-- [Deployment](#deployment)
-  * [GitHub Pages](#github-pages)
-  * [Forking the GitHub Repository](#forking-the-github-repository)
-  * [Making a Local Clone](#making-a-local-clone)
-- [Credits](#credits)
-  * [Media](#media)
-  * [Quotes:](#quotes-)
-  * [Research for choice of Colour palette:](#research-for-choice-of-colour-palette-)
-  * [Tourism websites from which I took inspiration when planning my project:](#tourism-websites-from-which-i-took-inspiration-when-planning-my-project-)
-- [Acknowledgements](#acknowledgements)
- 
- 
----  
  
 # UX Design    
  
@@ -112,8 +74,6 @@ The user is looking
    2. As the site owner, I want to be able to edit or remove content uploaded by other users.  
    3. As the site owner, I want to be able to add, edit or delete categories of Grants.  
   
-  
-[Back to Content](#content)  
  
 ---  
       
@@ -122,37 +82,29 @@ The user is looking
 ## Functional Specification   
  
 ### Current feature requirements:     
-* 
-* 
-* 
-*  
+* Fully responsive website that will automatically adapt for desktop, tablet and mobile devices.  
+* A navigation bar across the top of the page that is clear and simple to user.  
+* A Nav Logo that makes it easy for the user to return to the home page.  
+* A home page that clearly identifies the purpuse of the site.  
+* A home page that gives a summury of all the grants currently available in the database.  
+* A simple Contact form in the footer so that the user can easily email the site owner if they have a query. 
+* A Search box at the top of the home page to filter grants by relevent keywords (one the user is logged in).   
+* The ability to Add a new grant to the database if you are a registered user who is logged in.  
+* The ability to Edit a grant that you have previously uploaded (once the user is logged in).  
+* The ability to Delete a grant that you have previously uploaded (once the user is logged in).  
+* The ability for an Admin user to access a Maintenance page where they can Add, Edit or Delete a Category or Organisation.  
+* The ability for the Admin user to Edit or Delete a user.  
   
 ### Future feature requirements:    
-* 
-* 
-  
-### Content Requirements:    
-*   
-* 
-* 
-* 
-* 
-* 
-* 
-*  
-* 
-* 
-*  
+* The implementation of pagination on the home page to only show 5 grant summaries per page to reduce the amount of scrolling and to maintain the page load time as the database grows.  
+* The ability for a user to reset their password should they forget it.  
+* The site could be scaled to National coverage and would require additional filtering, for example to display grant per county.  
  
  [Back to Content](#content)  
  
 ---      
        
-# Structure  
-  
-    
-![Information Architecture](./assets/images/ia.png)
-      
+# Structure    
   
 ## wireframes
 [Mobile](./static/images/readme/rm-wireframe-mobile.png)  
@@ -173,9 +125,6 @@ the desktop view and I'm satisfied it works.
 ![Wireframe Mockup](./static/images/readme/rm-wireframe-mockup.png)  
   
 
-
-[Back to Content](#content)  
-
   --- 
     
 # Technologies Used  
@@ -189,6 +138,8 @@ the desktop view and I'm satisfied it works.
   
 ### Frameworks, Libraries & Programs Used
 
+* [__Flask 2.0.1__](https://pypi.org/project/Flask/) This was the main framework used to build the app. 
+* [__jquery 3.6.0__](https://blog.jquery.com/) Used to handle the Javascript element of some of the Materialize features used in the project. 
 * [__Materialize 1.0.0__](https://materializecss.com/) Materialize Grid was used for responsiveness as well as features such as Cards, Tabs & Buttons.  
 * [__Balsamiq__](https://balsamiq.com) Balsamiq was used to create wireframes during the design process.  
 * [__Google Fonts__](https://fonts.google.com) used for project fonts.  

@@ -28,6 +28,11 @@ def get_grants():
     return render_template("grants.html", grants=grants)
 
 
+@app.route("/more_details/<grant_id>", methods=["GET", "POST"])
+def more_details(grant_id):
+    return render_template("more_details.html")
+
+
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
@@ -81,8 +86,6 @@ def login():
                existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get(
                     "username", "first_name").lower()
-                # added first_name above but may need to remove again
-                # session["user"] = request.form.get("firstName")
                 flash("Welcome, {}".format(
                     request.form.get("username")))
                 return redirect(url_for(
@@ -145,11 +148,6 @@ def add_grant():
     return render_template("add_grant.html", categories=categories)
 
 
-@app.route("/more_details/<grant_id>", methods=["GET", "POST"])
-def more_details(grant_id):
-    return render_template("more_details.html")
-
-
 @app.route("/edit_grant/<grant_id>", methods=["GET", "POST"])
 def edit_grant(grant_id):
     if request.method == "POST":
@@ -173,7 +171,7 @@ def edit_grant(grant_id):
     grant = mongo.db.grants.find_one({"_id": ObjectId(grant_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit_grant.html", grant=grant,
-            categories=categories)
+                           categories=categories)
 
 
 @app.route("/delete_grant/<grant_id>")
@@ -190,7 +188,7 @@ def get_maintenance():
     organisations = list(mongo.db.organisations.find().sort(
         "organisation_name", 1))
     return render_template("maintenance.html", categories=categories,
-        users=users, organisations=organisations)
+                           users=users, organisations=organisations)
 
 
 @app.route("/add_category", methods=["GET", "POST"])
@@ -247,7 +245,7 @@ def edit_organisation(organisation_id):
             "organisation_name": request.form.get("organisation_name")
         }
         mongo.db.organisations.update({"_id": ObjectId(organisation_id)},
-            submit)
+                                      submit)
         flash("Organisation Succesfully Updated")
         return redirect(url_for("get_maintenance"))
 
