@@ -1,9 +1,7 @@
  # ***[Grant Finder](http://grant-finder-pro.herokuapp.com/get_grants)***  
-![Mock-Up](static/images/readme/mockup.png)  
   
 [![Mock-Up](static/images/readme/mockup.png)](http://grant-finder-pro.herokuapp.com/get_grants) 
 
-   
 ---   
   
 # Project Description   
@@ -141,7 +139,10 @@ the desktop view and I'm satisfied it works.
 * [__Flask 2.0.1__](https://pypi.org/project/Flask/) This was the main framework used to build the app. 
 * [__jquery 3.6.0__](https://blog.jquery.com/) Used to handle the Javascript element of some of the Materialize features used in the project. 
 * [__Materialize 1.0.0__](https://materializecss.com/) Materialize Grid was used for responsiveness as well as features such as Cards, Tabs & Buttons.  
-* [__Balsamiq__](https://balsamiq.com) Balsamiq was used to create wireframes during the design process.  
+* [__Balsamiq__](https://balsamiq.com) Balsamiq was used to create wireframes during the design process. 
+* [__Jinja__](https://jinja.palletsprojects.com/en/3.0.x/templates/) Was used to create the Python templates.   
+* [__Heroku__](https://heroku.com/) The cloud platform for deploying the app.  
+* [__MongoDB__](https://mongodb.com/) The application database.  
 * [__Google Fonts__](https://fonts.google.com) used for project fonts.  
 * [__Gitpod__](https://gitpod.io) Gitpod was the IDE used to create the site and for version control.  
 * [__Github__](https://github.com/) GitHub is used to store the projects code after being pushed from Gitpod.  
@@ -158,6 +159,7 @@ the desktop view and I'm satisfied it works.
 * [__W3C Markup Validator__](https://validator.w3.org/) Used to test HTML code validation.  
 * [__W3C CSS Validatior - Jigsaw__](https://jigsaw.w3.org/css-validator/) Used to test CSS code validation.  
 * [__jshint Validatior__](https://jshint.com/) Used to test Javascript / JQuery code validation.
+* [__PEP8 Validatior__](http://pep8online.com/) Used to test that Python code is PEP8 compliant.
 * [__Mobile-Friendly Test__](https://search.google.com/test/mobile-friendly?id=ZteYI-6sVDRnrLMf_Chjmw) used to check if code is Mobile Friendly.  
 * [__Am I Responsive__](http://ami.responsivedesign.is/) used to create Mock-up images to represent the site's responsiveness.  
 * [__GitHub Wiki TOC generator__](https://ecotrust-canada.github.io/markdown-toc/) Markdown Table of Content Generator.  
@@ -191,9 +193,27 @@ On grants.html I had forgottent to change the tab numbers for the second card wh
 
 
 
-- HTML Validation Testing
-- CSS Validation Testing
-- Accessibility Testing
+- HTML Validation  
+![HTML Validation](static/images/readme/html-valid.png)  
+  
+- CSS Validation  
+![CSS Validation](static/images/readme/css-validated.png)  
+  
+- JShint Validation  
+![JShint Validation](static/images/readme/jshint-validated.png)  
+  
+- PEP8 Validation  
+![PEP8 Validation](static/images/readme/pep8.png)  
+  
+- Mobile Friendly Test  
+![Mobile Friendly Test](static/images/readme/mobile-friendly.png)   
+  
+- Dev Tools - Lighthouse  
+![Dev Tools Lighthouse](static/images/readme/dev-tools-lighthouse.png)  
+
+
+- Accessibility  
+
 - Responsive Testing
 - Manual Testing  
 - User Stories
