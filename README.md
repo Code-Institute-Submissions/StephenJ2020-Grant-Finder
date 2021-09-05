@@ -215,7 +215,7 @@ On grants.html I had forgottent to change the tab numbers for the second card wh
 
 ##  Manual Testing  
 
-* To view the manual testing file [click here](https://github.com/StephenJ2020/workspace/Grant-Finder/manual-testing.md)
+* To view the manual testing file [click here](https://github.com/StephenJ2020/Grant-Finder/blob/main/manual-testing.md)
 
 
 ##  User Stories Testing  
