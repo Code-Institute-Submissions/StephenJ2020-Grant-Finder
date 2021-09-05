@@ -220,6 +220,32 @@ On grants.html I had forgottent to change the tab numbers for the second card wh
 
 ##  User Stories Testing  
 
+  - #### First Time Visitor Goals
+ 
+   1. As a First Time Visitor, I can see the purpose of the site before I register.  
+   2. As a First Time Visitor, I can see a summary of the most recent content without having to register.  
+   3. As a First Time Visitor, I can register without having to give too much personal information, but I do have to give some details.  
+   4. As a First Time Visitor, I am not yet able to filter Categories of Grants.  
+   5. As a First Time Visitor, I can search for a grant by keywords.  
+   6. As a First Time Visitor, I can see who is the Issuing body of the grant.   
+   7. As a First Time Visitor, I can see the application opening and closing dates.  
+   8. As a First Time Visitor, I have a link to the application form/portal.   
+   9. As a First Time Visitor, I have a link to any supporting documentation / guidelines provided by the issuing body.  
+   10. As a First Time Visitor, I can upload details of a grant for other user to apply for.  
+   11. As a First Time Visitor, I can contact the site owner for basic support if I have any queries about the site.   
+ 
+   - #### Returning & Frequent Visitor Goals
+ 
+   1. As a Returning Visitor, I can log in easily.  
+   2. As a Returning Visitor, I cannot see a list of all the grants that I have uploaded in my User Profile when I log-in, but this is being worked on. 
+   3. As a Frequent User, I was able to update / amend details of grants that I have uploaded, but due to the change of layout on the homepage I cannot currently do this.  
+   4. As a Frequent User, I can delete grants that I have uploaded, but due to the change of layout on the homepage I cannot currently do this.
+
+   - #### Site Owner Goals   
+   1. As the site owner, I feel I am promoting a collaborative environment for the sharing of information regarding Grant opportunities for local community groups, clubs & projects.  
+   2. As the site owner, I am able to edit or remove some content uploaded by other users.  
+   3. As the site owner, I am to be able to add, edit or delete categories of Grants.  
+
 
 
  
