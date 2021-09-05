@@ -28,11 +28,6 @@ def get_grants():
     return render_template("grants.html", grants=grants)
 
 
-@app.route("/more_details/<grant_id>", methods=["GET", "POST"])
-def more_details(grant_id):
-    return render_template("more_details.html")
-
-
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
@@ -101,6 +96,32 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html")
+
+
+@app.route("/more_details/<grant_id>", methods=["GET", "POST"])
+def more_details(grant_id):
+    if request.method == "POST":
+        is_recurring = "Yes" if request.form.get("is_recurring") else "No"
+        details = {
+            "grant_title": request.form.get("grant_title"),
+            "issuing_body": request.form.get("issuing_body"),
+            "category_name": request.form.get("category_name"),
+            "opening_date": request.form.get("opening_date"),
+            "closing_date": request.form.get("closing_date"),
+            "grant_description": request.form.get("grant_description"),
+            "website": request.form.get("website"),
+            "support_docs": request.form.get("support_docs"),
+            "application_link": request.form.get("application_link"),
+            "is_recurring": is_recurring,
+            "created_by": session["user"]
+        }
+        mongo.db.grants.update({"_id": ObjectId(grant_id)}, details)
+        flash("Grant Details Successfully Updated")
+
+    grant = mongo.db.grants.find_one({"_id": ObjectId(grant_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("more_details.html", grant=grant,
+                           categories=categories )
 
 
 @app.route("/my_account/<username>", methods=["GET", "POST"])

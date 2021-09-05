@@ -213,12 +213,16 @@ On grants.html I had forgottent to change the tab numbers for the second card wh
 
 
 
-- Manual Testing  
-- User Stories
+##  Manual Testing  
 
-[Back to Content](#content)  
-    
----  
+* To view the manual testing file [click here](https://github.com/StephenJ2020/workspace/Grant-Finder/manual-testing.md)
+
+
+##  User Stories Testing  
+
+
+
+ 
   
 # Deployment
 
@@ -327,11 +331,11 @@ By forking the GitHub Repository you make a copy of the original repository on y
 5. Change the current working directory to the location where you want the cloned directory to be made.
 6. Type `git clone`, and then paste the URL you copied in Step 3.
 ```
-$ git clone https://github.com/StephenJ2020/CI-MS1-IrishSpiritTours
+$ git clone https://github.com/StephenJ2020/Grant-Finder
 ```
 7. Press Enter. Your local clone will be created.
 ```
-$ git clone https://github.com/StephenJ2020/CI-MS1-IrishSpiritTours
+$ git clone https://github.com/StephenJ2020/Grant-Finder
 > Cloning into `CI-Clone`...
 > remote: Counting objects: 10, done.
 > remote: Compressing objects: 100% (8/8), done.
@@ -339,33 +343,16 @@ $ git clone https://github.com/StephenJ2020/CI-MS1-IrishSpiritTours
 > Unpacking objects: 100% (10/10), done.
 ``` 
 
- 
-
-## Forking the GitHub Repository
-
-
-  
-## Making a Local Clone
-
-
-```  
-  [Back to Content](#content)  
-
-  ---
 
 # Credits
   
-## Media   
   
-Images used on index.html:  
--   
--   
--  https://codepen.io/tayfunerbilen/pen/dyPeKxR SVG separator for base.html
+-   https://codepen.io/tayfunerbilen/pen/dyPeKxR SVG wave separator for header in base.html
+-   https://smooth.ie/blogs/news/svg-wavey-transitions-between-sections SVG wave separator for footer in base.html
+-   https://www.pikpng.com/pngl/b/497-4971265_internet-of-things-companies-digitalisation-vector-clipart.png Nav Logo
 
   
-[Back to Content](#content)  
 
----  
    
 # Acknowledgements     
 
@@ -374,5 +361,4 @@ I would like to thank the following people for their support and guidance during
 - Code Institute Tutor Support.  
 - The Code Institute Slack Community.  
 -  
-
-[Back to Content](#content)       
+    
