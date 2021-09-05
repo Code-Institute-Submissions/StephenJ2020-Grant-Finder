@@ -6,4 +6,4 @@
 ![Dev Tools Lighthouse](static/images/readme/dev-tools-lighthouse.png)
 ![Dev Tools Lighthouse](static/images/readme/dev-tools-lighthouse.png)
 ![Dev Tools Lighthouse](static/images/readme/dev-tools-lighthouse.png)
-![Dev Tools Lighthouse](static/images/readme/dev-tools-lighthouse.png)
+![Dev Tools Lighthouse]()
