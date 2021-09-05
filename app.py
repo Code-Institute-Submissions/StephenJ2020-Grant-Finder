@@ -121,7 +121,7 @@ def more_details(grant_id):
     grant = mongo.db.grants.find_one({"_id": ObjectId(grant_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("more_details.html", grant=grant,
-                           categories=categories )
+                           categories=categories)
 
 
 @app.route("/my_account/<username>", methods=["GET", "POST"])
