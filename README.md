@@ -162,36 +162,40 @@ the desktop view and I'm satisfied it works.
 * [__PEP8 Validatior__](http://pep8online.com/) Used to test that Python code is PEP8 compliant.
 * [__Mobile-Friendly Test__](https://search.google.com/test/mobile-friendly?id=ZteYI-6sVDRnrLMf_Chjmw) used to check if code is Mobile Friendly.  
 * [__Am I Responsive__](http://ami.responsivedesign.is/) used to create Mock-up images to represent the site's responsiveness.  
-* [__GitHub Wiki TOC generator__](https://ecotrust-canada.github.io/markdown-toc/) Markdown Table of Content Generator.  
   
-[Back to Content](#content)  
-
---- 
+ 
    
 # TESTING  
 
-The entire testing process, issues and bugs found during development, solutions, and final results can be found [here]().
 
-- Development Notes  
 
-Original two codpens I wanted to use for the page layout proved to complicated to implement so I add to find an alternative SVG wave separator to use which I was able to maniptlate.
+## Development Notes  
+
+* Original two codpens I wanted to use for the page layout proved to complicated to implement so I add to find an alternative SVG wave separator to use which I was able to maniptlate. 
+- [SVG Wave Separator](https://codepen.io/StephenJ2020/pen/VwbJELx)  
+- [Javascript annimation for page title](https://codepen.io/rachsmith/pen/oGEMbz)   
   
-  Materalize Select / dropdown - unsure if took name attribute  
-  --> https://stackoverflow.com/questions/39130659/materialize-css-select-does-not-have-name-nor-proper-value-in-dom    
-      
+* Materalize Select / dropdown - unsure if took name attribute  
+- [Stack Overflow](https://stackoverflow.com/questions/39130659/materialize-css-select-does-not-have-name-nor-proper-value-in-dom)  
+  
+* Layout issues for initial homepage design using Materialize Tabs  
 On grants.html I had forgottent to change the tab numbers for the second card which I had copied from the first card for left-hand side layout and I had the "Created By" div one row too far down the code. This was easy enough to correct but contents of the columns is still overlaping as the external url's are too long and the section container holding the two cards isn't resizing as new grants are added. Plus layout issue with the materalize tabs is likely to return once I add additional new grants as odd numbered left-hand layout will all have tabs 1,2 & 3 and even numbered right-hand tabs will all have tabs 4,5 & 6.
         
-- Bugs
-  
-  Materialize Modal ID's  
-  https://stackoverflow.com/questions/7537439/how-to-increment-a-variable-on-a-for-loop-in-jinja-template  
-  https://www.youtube.com/watch?v=8OuSc0Q_4tI  
-  https://www.youtube.com/watch?v=Krrb2M8PwEQ  
-  
-  
+* Materialize Modal ID's  
+- [Stack Overflow](https://stackoverflow.com/questions/7537439/how-to-increment-a-variable-on-a-for-loop-in-jinja-template)  
+- [Youtube tutorial](https://www.youtube.com/watch?v=8OuSc0Q_4tI) 
+- [Stack tutorial](https://www.youtube.com/watch?v=Krrb2M8PwEQ) 
+    
+* Realized too late that I wasn't going to be able to correct mobile layout issue connected to the use of materialize tabs and had to redesign layout of homepage.  
 
+* Haven't been able to render details from removed tabs to newly created more_details.html template 
 
-
+* Haven't been able to render user created grants to user's profile page my_account.html  
+  
+* Realised too late that I should have been adding my defensive programming to the flask app.py file rather than using Jinja Templating.  
+  
+    
+## Validation
 
 - HTML Validation  
 ![HTML Validation](static/images/readme/html-valid.png)  
